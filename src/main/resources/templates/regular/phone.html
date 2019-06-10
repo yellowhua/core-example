@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>手机号码正则验证</title>
+    <th:block th:include="common/pub_head::jquery"/>
+</head>
+<body>
+
+<div>
+    中国移动手机号码验证：
+    <input type="text" id="chinaMobile"/>
+    <input type="button" value="验证" onclick="checkChinaMobile()"/>
+</div>
+
+<div>
+    中国电信手机号码验证：
+    <input type="text" id="chinaTelcom"/>
+    <input type="button" value="验证" onclick="checkChinaTelcom()"/>
+</div>
+
+<div>
+    中国连通手机号码验证：
+    <input type="text" id="chinaConnected"/>
+    <input type="button" value="验证" onclick="checkChinaConnected()"/>
+</div>
+
+<script th:inline="javascript">
+
+    /**
+     * 中国移动手机号码正则验证
+     * 1.匹配13开头，第三位数字可以是4到9中的任意一个，然后再加任意8位数字
+     * 2.匹配15开头，第三位数字可以是0、1、2、7、8或者9，然后再加任意8位数字
+     * 3.匹配18开头，第三位数字可以是2、3、4、7或者8，然后再加任意8位数字
+     * 4.匹配147开头，然后再加任意8位数字
+     * 5.匹配17开头，第三位数字可以是2或者8，然后再加任意8位数字
+     * 6.匹配198开头，然后再加任意8位数字
+     */
+    function checkChinaMobile() {
+        var reg = /^13[4-9]\d{8}|15[012789]\d{8}|18[23478]\d{8}|147\d{8}|17[28]\d{8}|198\d{8}$/;
+        var chinaMobile = $("#chinaMobile").val();
+        var flag = reg.test(chinaMobile);
+        console.log(flag);
+    }
+
+    /**
+     * 中国电信手机号码正则验证
+     * 1.匹配133开头，然后再加任意8位数字
+     * 2.匹配149开头，然后再加任意8位数字
+     * 3.匹配153开头，然后再加任意8位数字
+     * 4.匹配17开头，第三位数字可以是3或者7，然后再加任意8位数字
+     * 5.匹配18开头，第三位数字可以是0、1或者9，然后再加任意8位数字
+     * 6.匹配199开头，然后再加任意8位数字
+     */
+    function checkChinaTelcom() {
+        var reg = /^133\d{8}|149\d{8}|153\d{8}|17[37]\d{8}|18[019]\d{8}|199\d{8}$/;
+        var chinaTelcom = $("#chinaTelcom").val();
+        var flag = reg.test(chinaTelcom);
+        console.log(flag);
+    }
+
+    /**
+     * 中国连通手机号码正则验证
+     * 1.匹配13开头，第三位数字可以是0、1或者2，然后再加任意8位数字
+     * 2.匹配145开头，然后再加任意8位数字
+     * 3.匹配15开头，第三位数字可以是5或者6，然后再加任意8位数字
+     * 4.匹配166开头，然后再加任意8位数字
+     * 5.匹配17开头，第三位数字可以是1、5或者6，然后再加任意8位数字
+     * 6.匹配18开头，第三位数字可以是5或者6，然后再加任意8位数字
+     */
+    function checkChinaConnected() {
+        var reg = /^13[012]\d{8}|145\d{8}|15[56]\d{8}|166\d{8}|17[156]\d{8}|18[56]\d{8}$/;
+        var chinaConnected = $("#chinaConnected").val();
+        var flag = reg.test(chinaConnected);
+        console.log(flag);
+    }
+</script>
+</body>
+</html>

@@ -37,7 +37,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!--boot的springMVC依赖-->
+		<!--boot的web依赖-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -55,7 +55,7 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-		<!--属性配置-->
+		<!--读取配置文件属性-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
@@ -100,7 +100,7 @@
 			<version>1.2.0</version>
 		</dependency>
 
-		<!--工具类-->
+		<!-- 字符串集合处理工具类 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>
@@ -109,15 +109,115 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.4</version>
+			<version>3.5</version>
 		</dependency>
+
+		<!-- 多文件上传工具包 -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.3</version>
+		</dependency>
+
+		<!-- json-lib依赖 -->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.2.3</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+
+		<!-- maven依赖引入的hanlp包，与手动引入的hanlp包二选一即可 -->
+		<dependency>
+			<groupId>com.hankcs</groupId>
+			<artifactId>hanlp</artifactId>
+			<version>portable-1.7.3</version>
+		</dependency>
+
+		<!-- 手动引入的hanlp包，与maven依赖引入的hanlp包二选一即可 -->
+		<!--<dependency>
+			<groupId>com.hankcs</groupId>
+			<artifactId>hanlp</artifactId>
+			<scope>system</scope>
+			<version>fix</version>
+			<systemPath>${project.basedir}/src/main/resources/lib/hanlp-1.7.3.jar</systemPath>
+		</dependency>-->
 	</dependencies>
 
 	<build>
 		<plugins>
+			<!--配置打包时不包含依赖包-->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<layout>ZIP</layout>
+					<executable>true</executable>
+					<includes>
+						<!--nothing 代表不存在的依赖包，意思就是什么依赖包都不引入 -->
+						<include>
+							<groupId>nothing</groupId>
+							<artifactId>nothing</artifactId>
+						</include>
+					</includes>
+				</configuration>
+			</plugin>
+
+			<!--配置打包时，把依赖包打到jar包外面的lib目录下-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.8</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<!-- 指定依赖包输出的路径 -->
+							<outputDirectory>
+								${project.build.directory}/lib
+							</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- 打包时跳过测试代码 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+
+			<!--编译插件，指定编译版本，默认JDK 1.4-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<!--骨架生成插件-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-archetype-plugin</artifactId>
+				<version>2.2</version>
 			</plugin>
 		</plugins>
 	</build>

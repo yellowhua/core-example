@@ -1,4 +1,4 @@
-package com.hh.core.controller;
+package com.hh.core.file.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
