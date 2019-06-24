@@ -59,7 +59,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
 		</dependency>
 
 		<!-- 文档支持 Swagger 是一款RESTFUL接口的文档在线自动生成+功能测试功能软件 -->
@@ -119,7 +118,7 @@
 			<version>1.3.3</version>
 		</dependency>
 
-		<!-- json-lib依赖 -->
+		<!-- json-lib依赖，提供json数据处理功能 -->
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
@@ -142,6 +141,27 @@
 			<version>fix</version>
 			<systemPath>${project.basedir}/src/main/resources/lib/hanlp-1.7.3.jar</systemPath>
 		</dependency>-->
+
+		<!-- poi工具类，处理xls格式的exlce -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+
+		<!-- poi工具类，处理xlsx格式的exlce -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+
+		<!-- snmp4j -->
+		<dependency>
+			<groupId>org.snmp4j</groupId>
+			<artifactId>snmp4j</artifactId>
+			<version>1.10.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

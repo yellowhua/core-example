@@ -2,7 +2,7 @@
 server:
   port: 8080
 
-################### DataSource Configuration ##########################
+#################### DataSource Configuration ##########################
 #spring 在引入jdbc后，就默认开启了数据库连接池，所以可以不配置
 spring:
   datasource: #数据源配置
@@ -25,3 +25,8 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+#################### snmptrap ====================
+snmptrap:
+  listen-port: 162 # 监听端口
+  thread-num: 5 # 线程数
