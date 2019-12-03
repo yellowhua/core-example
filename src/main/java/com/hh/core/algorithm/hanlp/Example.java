@@ -1,4 +1,4 @@
-package com.hh.core.hanlp;
+package com.hh.core.algorithm.hanlp;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.collection.AhoCorasick.AhoCorasickDoubleArrayTrie;
