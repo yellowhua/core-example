@@ -162,6 +162,13 @@
 			<artifactId>snmp4j</artifactId>
 			<version>1.10.1</version>
 		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -104,7 +104,7 @@ public class Example {
         try {
             CRFLexicalAnalyzer analyzer = new CRFLexicalAnalyzer();
             for (String sentence : content) {
-                logger.info(analyzer.analyze(sentence));
+                logger.info("sentence:{}", analyzer.analyze(sentence));
             }
         } catch (IOException e) {
             logger.error(e.getMessage());
@@ -139,8 +139,8 @@ public class Example {
         CustomDictionary.insert("白富美", "nz 1024");
         // 删除词语（注释掉试试）
 //        CustomDictionary.remove("攻城狮");
-        logger.info(CustomDictionary.add("单身狗", "nz 1024 n 1"));
-        logger.info(CustomDictionary.get("单身狗"));
+        logger.info("CustomDictionary add:{}", CustomDictionary.add("单身狗", "nz 1024 n 1"));
+        logger.info("CustomDictionary add:{}", CustomDictionary.get("单身狗"));
 
         // AhoCorasickDoubleArrayTrie自动机扫描文本中出现的自定义词语
         final char[] charArray = content.toCharArray();
@@ -152,7 +152,7 @@ public class Example {
         });
 
         // 自定义词典在所有分词器中都有效
-        logger.info(HanLP.segment(content));
+        logger.info("result:{}", HanLP.segment(content));
     }
 
     /**
@@ -325,9 +325,9 @@ public class Example {
             suggester.addSentence(title);
         }
 
-        logger.info(suggester.suggest("发言", 1));       // 语义
-        logger.info(suggester.suggest("危机公共", 1));   // 字符
-        logger.info(suggester.suggest("mayun", 1));      // 拼音
+        logger.info("suggest:{}", suggester.suggest("发言", 1));       // 语义
+        logger.info("suggest:{}", suggester.suggest("危机公共", 1));   // 字符
+        logger.info("suggest:{}", suggester.suggest("mayun", 1));      // 拼音
     }
 
     /**

@@ -1,10 +1,7 @@
 package com.hh.core.file.excel.util;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
@@ -44,7 +41,7 @@ public class ExcelUtil {
                         if (k != 0) {break;}
                         Cell cell = row.getCell(k);
                         if (null == cell) {continue;}
-                        result += cell.getStringCellValue() + "断句";
+                        System.out.println(cell.getStringCellValue());
                     }
                 }
             }
