@@ -3,7 +3,6 @@ package com.hh.core.algorithm.hanlp;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.NotionalTokenizer;
 import com.hh.core.file.excel.util.ExcelUtil;
-import com.hh.core.algorithm.hanlp.Example;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 

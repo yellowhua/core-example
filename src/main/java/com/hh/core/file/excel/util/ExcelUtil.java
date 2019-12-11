@@ -38,7 +38,6 @@ public class ExcelUtil {
                     // 获取列数
                     int cellNum = row.getLastCellNum();
                     for (int k = 0; k < cellNum; k++) {
-                        if (k != 0) {break;}
                         Cell cell = row.getCell(k);
                         if (null == cell) {continue;}
                         System.out.println(cell.getStringCellValue());
