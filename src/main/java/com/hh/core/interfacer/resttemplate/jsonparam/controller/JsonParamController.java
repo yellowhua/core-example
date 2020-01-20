@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -90,6 +91,21 @@ public class JsonParamController {
         resultMap.put("code", Constants.CODE_SUCCESS);
         resultMap.put("msg", Constants.MSG_SUCCESS);
         return resultMap;
+    }
+
+    @GetMapping(value = "test")
+    @ResponseBody
+    public Map<String, Object> test() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("code", 0);
+        map.put("msg", "interface call succeeded");
+        List<String> list = new ArrayList<>();
+        list.add("10001");
+        list.add("10002");
+        list.add("10003");
+        list.add("10004");
+        map.put("data", list);
+        return map;
     }
 
 }

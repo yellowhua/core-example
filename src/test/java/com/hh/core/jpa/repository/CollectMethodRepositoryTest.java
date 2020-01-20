@@ -26,10 +26,10 @@ public class CollectMethodRepositoryTest {
     @Test
     public void testSaveAll() {
         collectMethodRepository.deleteAll();
-        List<CollectMethod> all = new ArrayList<>();
 
+        List<CollectMethod> all = new ArrayList<>();
         String path = "C:\\Users\\Administrator\\Desktop\\work\\福建\\福建Imanage-已完成\\平台监控大屏展示\\版本二\\采集口径\\";
-        path += "主机采集口径整理.xls";
+        path += "主机采集口径.xls";
         all.addAll(CollectMethodExcelUtil.readHostExcel(new File(path)));
 
         path = "C:\\Users\\Administrator\\Desktop\\work\\福建\\福建Imanage-已完成\\平台监控大屏展示\\版本二\\采集口径\\";

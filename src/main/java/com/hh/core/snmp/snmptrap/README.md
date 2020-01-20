@@ -1,4 +1,4 @@
-snmptrap类
+《snmptrap类》
 
 1.trap
   1.1.接收trap

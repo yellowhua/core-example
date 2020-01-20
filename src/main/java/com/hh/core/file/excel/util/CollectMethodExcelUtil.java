@@ -53,39 +53,24 @@ public class CollectMethodExcelUtil {
                     int cellNum = row.getLastCellNum();
                     for (int k = 0; k < cellNum; k++) {
                         Cell cell = row.getCell(k);
+                        // 获取KPI_ID
+                        if (k == 3) {
+                            if (null == cell || StringUtils.isEmpty(cell.getStringCellValue())) {break;}
+                            collectMethod.setKpiId(cell.getStringCellValue());
+                        }
 
-                        if (i < 4) {
-                            // 获取KPI_ID
-                            if (k == 3) {
-                                if (null == cell || StringUtils.isEmpty(cell.getStringCellValue())) {break;}
-                                collectMethod.setKpiId(cell.getStringCellValue());
-                            }
+                        // 获取采集命令
+                        if (k == 4) {
+                            cellValue4 = cell.getStringCellValue();
+                        }
 
-                            // 获取采集命令
-                            if (k == 4) {
-                                cellValue4 = cell.getStringCellValue();
+                        // 获取采集方式
+                        if (k == 6) {
+                            if (!"".equals(cellValue4)) {
+                                collectMethodValue += "系统文件：\n" + cellValue4;
                             }
-
-                            // 获取采集方式
-                            if (k == 6) {
-                                if (!"".equals(cellValue4)) {
-                                    collectMethodValue += "系统文件：\n" + cellValue4;
-                                }
-                                collectMethodValue += "\n计算方法：\n" + cell.getStringCellValue();
-                                collectMethod.setCollectMethod(collectMethodValue);
-                            }
-                        } else {
-                            // 获取KPI_ID
-                            if (k == 1) {
-                                if (null == cell || StringUtils.isEmpty(cell.getStringCellValue())) {break;}
-                                collectMethod.setKpiId(cell.getStringCellValue());
-                            }
-
-                            // 获取采集方式
-                            if (k == 4) {
-                                collectMethodValue = "计算方法：\n" + cell.getStringCellValue();
-                                collectMethod.setCollectMethod(collectMethodValue);
-                            }
+                            collectMethodValue += "\n计算方法：\n" + cell.getStringCellValue();
+                            collectMethod.setCollectMethod(collectMethodValue);
                         }
                     }
                     if (StringUtils.isNotEmpty(collectMethod.getKpiId())) {

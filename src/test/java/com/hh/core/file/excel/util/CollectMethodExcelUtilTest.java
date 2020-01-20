@@ -15,7 +15,7 @@ public class CollectMethodExcelUtilTest {
     @Test
     public void testReadHostExcel() {
         String path = "C:\\Users\\Administrator\\Desktop\\work\\福建\\福建Imanage-已完成\\平台监控大屏展示\\版本二\\采集口径\\";
-        path += "主机采集口径整理.xls";
+        path += "主机采集口径.xls";
         List<CollectMethod> collectMethods = CollectMethodExcelUtil.readHostExcel(new File(path));
 
         System.out.println("=========== size ===========");
