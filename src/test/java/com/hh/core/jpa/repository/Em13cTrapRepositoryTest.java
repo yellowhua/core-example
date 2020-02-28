@@ -1,6 +1,6 @@
 package com.hh.core.jpa.repository;
 
-import com.hh.core.file.txt.util.Em13cTxtUtil;
+import com.hh.core.file.txt.read.util.Em13cTxtUtil;
 import com.hh.core.jpa.domain.Em13cTrap;
 import org.junit.Test;
 import org.junit.runner.RunWith;

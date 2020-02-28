@@ -2,7 +2,7 @@ package com.hh.core.algorithm.hanlp;
 
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.NotionalTokenizer;
-import com.hh.core.file.excel.util.ExcelUtil;
+import com.hh.core.file.excel.read.util.ExcelReadUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
@@ -223,7 +223,7 @@ public class ExampleTest {
         String prefifix = "C:\\Users\\Administrator\\Desktop\\work\\福建\\智能运维-进行中\\需求文档\\整理过的知识库\\";
         String path = prefifix + "活体检测控件安装操作手册.xls";
         File file = new File(path);
-        String result = ExcelUtil.readExcel(file);
+        String result = ExcelReadUtil.readExcel(file);
 
         // 分词
         List<Term> termList = NotionalTokenizer.segment(result);

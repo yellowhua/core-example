@@ -1,5 +1,6 @@
-package com.hh.core.file.txt.util;
+package com.hh.core.file.txt.read.util;
 
+import com.hh.core.file.txt.read.util.YwztTxtUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 

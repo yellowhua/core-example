@@ -1,5 +1,6 @@
-package com.hh.core.file.excel.util;
+package com.hh.core.file.excel.read.util;
 
+import com.hh.core.file.excel.Constants;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -8,9 +9,9 @@ import java.io.*;
 
 /**
  * Created by hh on 2019/6/17.
- * excel工具类
+ * excel解析读取工具类
  */
-public class ExcelUtil {
+public class ExcelReadUtil {
 
     public static String readExcel(File file) {
         String result = "";

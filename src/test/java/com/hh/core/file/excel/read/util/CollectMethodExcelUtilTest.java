@@ -1,5 +1,6 @@
-package com.hh.core.file.excel.util;
+package com.hh.core.file.excel.read.util;
 
+import com.hh.core.file.excel.read.util.CollectMethodExcelUtil;
 import com.hh.core.jpa.domain.CollectMethod;
 import org.junit.Test;
 

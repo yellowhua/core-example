@@ -1,6 +1,6 @@
 package com.hh.core.jpa.repository;
 
-import com.hh.core.file.excel.util.CollectMethodExcelUtil;
+import com.hh.core.file.excel.read.util.CollectMethodExcelUtil;
 import com.hh.core.jpa.domain.CollectMethod;
 import org.junit.Test;
 import org.junit.runner.RunWith;

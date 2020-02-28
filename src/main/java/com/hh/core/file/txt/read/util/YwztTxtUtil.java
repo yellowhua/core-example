@@ -1,4 +1,4 @@
-package com.hh.core.file.txt.util;
+package com.hh.core.file.txt.read.util;
 
 import org.apache.commons.lang3.StringUtils;
 
