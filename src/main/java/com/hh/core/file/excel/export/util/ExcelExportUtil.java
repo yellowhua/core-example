@@ -11,6 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
+import java.util.List;
 
 /**
  * Created by hh on 2019/6/17.
@@ -18,11 +19,9 @@ import java.io.*;
  */
 public class ExcelExportUtil {
 
-    public static void exportExcel() throws IOException {
-        OutputStream out = null;
-
+    public static void exportExcel(OutputStream out) throws IOException {
         XSSFWorkbook workbook = new XSSFWorkbook();
-        XSSFSheet sheet = workbook.createSheet();
+        XSSFSheet sheet = workbook.createSheet("sheet名称");
 
         // 创建3行
         for (int i = 0; i < 3; i++) {
@@ -35,8 +34,6 @@ public class ExcelExportUtil {
         }
 
         workbook.write(out);
-
-
     }
 
 

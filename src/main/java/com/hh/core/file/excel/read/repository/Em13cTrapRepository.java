@@ -1,6 +1,6 @@
-package com.hh.core.jpa.repository;
+package com.hh.core.file.excel.read.repository;
 
-import com.hh.core.jpa.domain.Em13cTrap;
+import com.hh.core.file.excel.read.domain.Em13cTrap;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

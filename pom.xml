@@ -82,8 +82,8 @@
 		<!--Oracle 驱动-->
 		<dependency>
 			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc14</artifactId>
-			<version>10.2.0.4.0</version>
+			<artifactId>ojdbc8</artifactId>
+			<version>12.2.0.1</version>
 		</dependency>
 
 		<!--data jpa(java persistent api) 包括了aop、jdbc、hibernate 的starter-->

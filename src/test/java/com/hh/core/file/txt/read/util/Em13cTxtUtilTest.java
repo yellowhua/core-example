@@ -1,7 +1,6 @@
 package com.hh.core.file.txt.read.util;
 
-import com.hh.core.file.txt.read.util.Em13cTxtUtil;
-import com.hh.core.jpa.domain.Em13cTrap;
+import com.hh.core.file.excel.read.domain.Em13cTrap;
 import org.junit.Test;
 
 import java.io.File;
