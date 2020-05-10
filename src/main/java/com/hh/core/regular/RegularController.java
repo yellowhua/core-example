@@ -10,11 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping(value = "regular")
-public class PhoneRegular {
+public class RegularController {
 
     @GetMapping(value = "phone")
     public String phone() {
         return "/regular/phone";
+    }
+
+    @GetMapping(value = "idcard")
+    public String idcard() {
+        return "/regular/idcard";
     }
 
 }

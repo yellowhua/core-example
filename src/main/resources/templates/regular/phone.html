@@ -11,18 +11,21 @@
     中国移动手机号码验证：
     <input type="text" id="chinaMobile"/>
     <input type="button" value="验证" onclick="checkChinaMobile()"/>
+    <span id="result1"></span>
 </div>
 
 <div>
     中国电信手机号码验证：
     <input type="text" id="chinaTelcom"/>
     <input type="button" value="验证" onclick="checkChinaTelcom()"/>
+    <span id="result2"></span>
 </div>
 
 <div>
     中国连通手机号码验证：
     <input type="text" id="chinaConnected"/>
     <input type="button" value="验证" onclick="checkChinaConnected()"/>
+    <span id="result3"></span>
 </div>
 
 <script th:inline="javascript">
@@ -40,7 +43,7 @@
         var reg = /^13[4-9]\d{8}|15[012789]\d{8}|18[23478]\d{8}|147\d{8}|17[28]\d{8}|198\d{8}$/;
         var chinaMobile = $("#chinaMobile").val();
         var flag = reg.test(chinaMobile);
-        console.log(flag);
+        $("#result1").text(flag);
     }
 
     /**
@@ -56,7 +59,7 @@
         var reg = /^133\d{8}|149\d{8}|153\d{8}|17[37]\d{8}|18[019]\d{8}|199\d{8}$/;
         var chinaTelcom = $("#chinaTelcom").val();
         var flag = reg.test(chinaTelcom);
-        console.log(flag);
+        $("#result2").text(flag);
     }
 
     /**
@@ -72,7 +75,7 @@
         var reg = /^13[012]\d{8}|145\d{8}|15[56]\d{8}|166\d{8}|17[156]\d{8}|18[56]\d{8}$/;
         var chinaConnected = $("#chinaConnected").val();
         var flag = reg.test(chinaConnected);
-        console.log(flag);
+        $("#result3").text(flag);
     }
 </script>
 </body>

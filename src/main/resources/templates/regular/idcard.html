@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>身份证号正则验证</title>
+    <th:block th:include="common/pub_head::jquery"/>
+</head>
+<body>
+
+<div>
+    身份证号：
+    <input type="text" id="idcard"/>
+    <input type="button" value="验证" onclick="checkIDCard()"/>
+    <span class="result"></span>
+</div>
+
+<script th:inline="javascript">
+
+    /**
+     * 编码规则顺序从左至右依次为6位数字地址码，8位数字出生年份日期码，3位数字顺序码，1位数字校验码（可为x）。
+     * [1-9]\d{5}                 前六位地区，非0打头
+     * (18|19|([23]\d))\d{2}      出身年份，覆盖范围为 1800-3999 年
+     * ((0[1-9])|(10|11|12))      月份，01-12月
+     * (([0-2][1-9])|10|20|30|31) 日期，01-31天
+     * \d{3}[0-9Xx]：              顺序码三位 + 一位校验码
+     */
+    function checkIDCard() {
+        var reg = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+        var idcard = $("#idcard").val();
+        var flag = idcard.length === 18 && reg.test(idcard);
+        $(".result").text(flag);
+    }
+    
+</script>
+</body>
+</html>
