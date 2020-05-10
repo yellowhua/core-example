@@ -1,6 +1,7 @@
-package com.hh.core.sort.util;
+package com.hh.core.util.sort;
 
-import com.hh.core.sort.domain.User;
+import com.hh.core.util.sort.domain.User;
+import com.hh.core.util.sort.SortUtil;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.Map;
  * Created by hh on 2018/8/1.
  * 排序类测试
  */
-public class SortTest {
+public class SortUtilTest {
 
     @Test
     public void testSortArr() {
@@ -34,7 +35,7 @@ public class SortTest {
         user3.setId(3);
         user3.setName("华为");
         users.add(user3);
-        Sort.sortObjectListOne(users);
+        SortUtil.sortObjectListOne(users);
     }
 
     @Test
@@ -52,7 +53,7 @@ public class SortTest {
         user3.setId(3);
         user3.setName("华为");
         users.add(user3);
-        Sort.sortObjectListTwo(users);
+        SortUtil.sortObjectListTwo(users);
     }
 
     @Test
@@ -67,7 +68,7 @@ public class SortTest {
         Map<String, Object> map3 = new HashMap<>();
         map3.put("c", "亚信");
         list.add(map3);
-        Sort.sortMapList(list);
+        SortUtil.sortMapList(list);
     }
 
 }

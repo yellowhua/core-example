@@ -1,6 +1,6 @@
-package com.hh.core.sort.util;
+package com.hh.core.util.sort;
 
-import com.hh.core.sort.domain.User;
+import com.hh.core.util.sort.domain.User;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.text.Collator;
@@ -12,7 +12,7 @@ import static java.util.Locale.CHINA;
  * Created by hh on 2018/8/1.
  * 排序工具类
  */
-public class Sort {
+public class SortUtil {
 
     /**
      * 根据数组--》值的--》中文拼音首字母排序
