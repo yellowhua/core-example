@@ -39,7 +39,7 @@ public class CaptchaController {
         }
     }
 
-    @PostMapping
+    @PostMapping(value = "/form")
     public String checkCaptcha(String captcha, HttpServletRequest request, Model model) {
         String msg;
         try {
@@ -58,6 +58,26 @@ public class CaptchaController {
         model.addAttribute("msg", msg);
         model.addAttribute("captcha", captcha);
         return "/captcha/index";
+    }
+
+    @PostMapping(value = "/ajax")
+    @ResponseBody
+    public String checkCaptchaAjax(String captcha, HttpServletRequest request) {
+        String msg;
+        try {
+            HttpSession session = request.getSession();
+            String sessionCaptcha = String.valueOf(session.getAttribute(Constants.RANDOMCODEKEY));
+            if (StringUtils.equalsIgnoreCase(sessionCaptcha, captcha)) {
+                msg = "验证码正确";
+            } else {
+                msg = "验证码错误";
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            e.printStackTrace();
+            msg = "系统错误";
+        }
+        return msg;
     }
 
 }

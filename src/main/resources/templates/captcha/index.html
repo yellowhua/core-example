@@ -7,14 +7,17 @@
 </head>
 <body>
 
-<form th:action="@{/captcha}" method="post">
+<form th:action="@{/captcha/form}" method="post">
     <div>
         验证码：
         <input name="captcha" id="captcha" th:value="${captcha}" type="text"/>
         <img id="captchaImg" th:src="@{/captcha}" onclick="refresh();" style="cursor: pointer;" title="点击刷新" />
     </div>
     <div>
-        <input type="button" value="提交" onclick="submit()"/>
+        <input type="button" value="表单提交" onclick="submit()"/>
+    </div>
+    <div>
+        <input type="button" value="ajax提交" onclick="ajaxSubmit()"/>
     </div>
 </form>
 
@@ -30,6 +33,21 @@
         var url = /*[[@{/captcha}]]*/;
         url += "?random" + Math.random();
         $("#captchaImg").attr("src",url);
+    }
+
+    function ajaxSubmit() {
+        var url = /*[[@{/captcha/ajax}]]*/;
+        url += "?random" + Math.random();
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: {
+                "captcha" : $("#captcha").val()
+            },
+            success: function (data) {
+                alert(data);
+            }
+        });
     }
 </script>
 </body>
