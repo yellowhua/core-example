@@ -1,4 +1,4 @@
-package com.hh.core.util.merge.data;
+package com.hh.core.tool.merge.data;
 
 import lombok.Data;
 

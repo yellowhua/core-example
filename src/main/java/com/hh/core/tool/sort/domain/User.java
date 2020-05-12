@@ -1,4 +1,4 @@
-package com.hh.core.util.sort.domain;
+package com.hh.core.tool.sort.domain;
 
 import lombok.Data;
 

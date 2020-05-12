@@ -1,7 +1,6 @@
-package com.hh.core.util.sort;
+package com.hh.core.tool.sort;
 
-import com.hh.core.util.sort.domain.User;
-import com.hh.core.util.sort.SortUtil;
+import com.hh.core.tool.sort.domain.User;
 import org.junit.Test;
 
 import java.util.ArrayList;

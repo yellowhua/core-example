@@ -1,6 +1,6 @@
-package com.hh.core.util.merge;
+package com.hh.core.tool.merge;
 
-import com.hh.core.util.merge.data.ProductData;
+import com.hh.core.tool.merge.data.ProductData;
 
 import java.util.ArrayList;
 import java.util.List;
