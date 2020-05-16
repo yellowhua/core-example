@@ -184,6 +184,7 @@
 			<version>1.1.1.RELEASE</version>
 		</dependency>-->
 
+		<!-- 监听微信消息 -->
 		<dependency>
 			<groupId>io.github.biezhi</groupId>
 			<artifactId>wechat-api</artifactId>
@@ -194,6 +195,20 @@
 					<artifactId>logback-classic</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<!-- fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.7</version>
+        </dependency>
+
+		<!-- httpclient -->
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
 		</dependency>
 	</dependencies>
 
