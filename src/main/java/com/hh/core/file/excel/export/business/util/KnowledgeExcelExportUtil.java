@@ -1,6 +1,6 @@
-package com.hh.core.file.excel.export.util;
+package com.hh.core.file.excel.export.business.util;
 
-import com.hh.core.file.excel.export.domain.KnowledgeBase;
+import com.hh.core.file.excel.export.business.domain.KnowledgeBase;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;

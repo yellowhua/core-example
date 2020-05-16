@@ -1,6 +1,6 @@
-package com.hh.core.file.excel.read.repository;
+package com.hh.core.file.excel.read.business.repository;
 
-import com.hh.core.file.excel.read.domain.CollectMethod;
+import com.hh.core.file.excel.read.business.domain.CollectMethod;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

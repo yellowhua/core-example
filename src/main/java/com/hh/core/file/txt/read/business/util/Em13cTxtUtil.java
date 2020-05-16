@@ -1,6 +1,6 @@
-package com.hh.core.file.txt.read.util;
+package com.hh.core.file.txt.read.business.util;
 
-import com.hh.core.file.excel.read.domain.Em13cTrap;
+import com.hh.core.file.txt.read.business.domain.Em13cTrap;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;

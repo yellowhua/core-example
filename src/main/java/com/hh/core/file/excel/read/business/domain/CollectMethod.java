@@ -1,4 +1,4 @@
-package com.hh.core.file.excel.read.domain;
+package com.hh.core.file.excel.read.business.domain;
 
 import lombok.Data;
 

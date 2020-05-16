@@ -1,8 +1,8 @@
 package com.hh.core.file.excel.read.repository;
 
-import com.hh.core.file.excel.read.repository.CollectMethodRepository;
-import com.hh.core.file.excel.read.util.CollectMethodExcelUtil;
-import com.hh.core.file.excel.read.domain.CollectMethod;
+import com.hh.core.file.excel.read.business.repository.CollectMethodRepository;
+import com.hh.core.file.excel.read.business.util.CollectMethodExcelUtil;
+import com.hh.core.file.excel.read.business.domain.CollectMethod;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

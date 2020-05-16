@@ -1,7 +1,7 @@
-package com.hh.core.file.excel.read.util;
+package com.hh.core.file.excel.read.business.util;
 
 import com.hh.core.file.excel.Constants;
-import com.hh.core.file.excel.read.domain.CollectMethod;
+import com.hh.core.file.excel.read.business.domain.CollectMethod;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;

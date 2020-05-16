@@ -16,7 +16,8 @@ public class ExcelExportController {
     @RequestMapping(value = "/export")
     @ResponseBody
     public void export(HttpServletResponse response) throws IOException {
-        String header = "attachment; filename = aaa.xlsx";
+        String excelName = new String("知识库.xlsx".getBytes(), "ISO8859-1");
+        String header = "attachment; filename = " + excelName;
         response.setHeader("Content-Disposition", header);
         response.setContentType("APPLICATION/OCTET-STREAM");
         OutputStream out = response.getOutputStream();
