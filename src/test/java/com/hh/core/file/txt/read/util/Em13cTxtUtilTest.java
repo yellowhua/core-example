@@ -1,7 +1,7 @@
 package com.hh.core.file.txt.read.util;
 
-import com.hh.core.file.txt.read.business.domain.Em13cTrap;
-import com.hh.core.file.txt.read.business.util.Em13cTxtUtil;
+import com.hh.core.business.txt.read.domain.Em13cTrap;
+import com.hh.core.business.txt.read.util.Em13cTxtUtil;
 import org.junit.Test;
 
 import java.io.File;

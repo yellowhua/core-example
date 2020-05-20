@@ -1,8 +1,8 @@
 package com.hh.core.file.excel.read.repository;
 
-import com.hh.core.file.txt.read.business.repository.Em13cTrapRepository;
-import com.hh.core.file.txt.read.business.util.Em13cTxtUtil;
-import com.hh.core.file.txt.read.business.domain.Em13cTrap;
+import com.hh.core.business.txt.read.repository.Em13cTrapRepository;
+import com.hh.core.business.txt.read.util.Em13cTxtUtil;
+import com.hh.core.business.txt.read.domain.Em13cTrap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
