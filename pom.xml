@@ -142,23 +142,6 @@
 			<systemPath>${project.basedir}/src/main/resources/lib/hanlp-1.7.3.jar</systemPath>
 		</dependency>-->
 
-		<!-- ca登录包 -->
-		<dependency>
-			<groupId>com.ylzinfo.fjca</groupId>
-			<artifactId>fjca</artifactId>
-			<scope>system</scope>
-			<version>1.0</version>
-			<systemPath>${project.basedir}/src/main/resources/lib/fjca-1.0.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk16</artifactId>
-			<scope>system</scope>
-			<version>1.4.6</version>
-			<systemPath>${project.basedir}/src/main/resources/lib/bcprov-jdk16-1.46.jar</systemPath>
-		</dependency>
-
-
 		<!-- poi工具类，处理xls格式的exlce -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -227,7 +210,32 @@
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
 		</dependency>
-	</dependencies>
+
+		<!-- druid数据源 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.19</version>
+        </dependency>
+
+		<!-- ==========business start========== -->
+		<!-- ca登录包 -->
+		<dependency>
+			<groupId>com.ylzinfo.fjca</groupId>
+			<artifactId>fjca</artifactId>
+			<scope>system</scope>
+			<version>1.0</version>
+			<systemPath>${project.basedir}/src/main/resources/lib/fjca-1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+			<scope>system</scope>
+			<version>1.4.6</version>
+			<systemPath>${project.basedir}/src/main/resources/lib/bcprov-jdk16-1.46.jar</systemPath>
+		</dependency>
+		<!-- ==========business end========== -->
+    </dependencies>
 
 	<build>
 		<plugins>
