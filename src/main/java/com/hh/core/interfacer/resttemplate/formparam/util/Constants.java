@@ -14,7 +14,7 @@ public class Constants {
      */
     public static HttpHeaders formHeader() {
         HttpHeaders headers = new HttpHeaders();
-        MediaType type = MediaType.parseMediaType(MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
+        MediaType type = MediaType.valueOf(MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
         headers.setContentType(type);
         return headers;
     }

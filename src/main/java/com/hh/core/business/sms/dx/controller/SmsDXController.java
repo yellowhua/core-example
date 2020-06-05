@@ -26,7 +26,7 @@ public class SmsDXController {
 
     @GetMapping(value = "/index")
     public String index() {
-        return "sms/dx";
+        return "business/sms/dx";
     }
 
     @GetMapping

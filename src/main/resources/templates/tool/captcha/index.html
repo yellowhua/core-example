@@ -7,19 +7,15 @@
 </head>
 <body>
 
-<form th:action="@{/captcha/form}" method="post">
-    <div>
-        验证码：
-        <input name="captcha" id="captcha" th:value="${captcha}" type="text"/>
-        <img id="captchaImg" th:src="@{/captcha}" onclick="refresh();" style="cursor: pointer;" title="点击刷新" />
-    </div>
-    <div>
-        <input type="button" value="表单提交" onclick="submit()"/>
-    </div>
-    <div>
-        <input type="button" value="ajax提交" onclick="ajaxSubmit()"/>
-    </div>
-</form>
+<div>
+    验证码：
+    <input name="captcha" id="captcha" th:value="${captcha}" type="text"/>
+    <img id="captchaImg" th:src="@{/tool/captcha}" onclick="refresh();" style="cursor: pointer;" title="点击刷新" />
+</div>
+<div>
+    <input type="button" value="提交" onclick="ajaxSubmit()"/>
+    <span id="result"></span>
+</div>
 
 <script th:inline="javascript">
     $(function () {
@@ -30,13 +26,13 @@
     });
 
     function refresh() {
-        var url = /*[[@{/captcha}]]*/;
+        var url = /*[[@{/tool/captcha}]]*/;
         url += "?random" + Math.random();
         $("#captchaImg").attr("src",url);
     }
 
     function ajaxSubmit() {
-        var url = /*[[@{/captcha/ajax}]]*/;
+        var url = /*[[@{/tool/captcha/ajax}]]*/;
         url += "?random" + Math.random();
         $.ajax({
             type: 'post',
@@ -45,7 +41,7 @@
                 "captcha" : $("#captcha").val()
             },
             success: function (data) {
-                alert(data);
+                $("#result").text(data);
             }
         });
     }

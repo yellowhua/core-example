@@ -1,4 +1,4 @@
-package com.hh.core.weixin;
+package com.hh.core.tool.weixin;
 
 import io.github.biezhi.wechat.WeChatBot;
 import io.github.biezhi.wechat.api.annotation.Bind;

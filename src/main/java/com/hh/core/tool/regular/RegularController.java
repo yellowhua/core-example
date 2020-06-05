@@ -1,4 +1,4 @@
-package com.hh.core.regular;
+package com.hh.core.tool.regular;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,17 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 手机号码正则表达式
  */
 @Controller
-@RequestMapping(value = "regular")
+@RequestMapping(value = "/tool/regular")
 public class RegularController {
 
-    @GetMapping(value = "phone")
-    public String phone() {
-        return "/regular/phone";
-    }
-
-    @GetMapping(value = "idcard")
-    public String idcard() {
-        return "/regular/idcard";
+    @GetMapping
+    public String index() {
+        return "/tool/regular/index";
     }
 
 }

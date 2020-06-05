@@ -14,14 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping(value = "captcha")
+@RequestMapping(value = "/tool/captcha")
 public class CaptchaController {
 
     private static final Logger logger = LogManager.getLogger(CaptchaController.class);
 
     @GetMapping(value = "/index")
     public String index() {
-        return "captcha/index";
+        return "/tool/captcha/index";
     }
 
     @GetMapping
@@ -37,27 +37,6 @@ public class CaptchaController {
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }
-    }
-
-    @PostMapping(value = "/form")
-    public String checkCaptcha(String captcha, HttpServletRequest request, Model model) {
-        String msg;
-        try {
-            HttpSession session = request.getSession();
-            String sessionCaptcha = String.valueOf(session.getAttribute(Constants.RANDOMCODEKEY));
-            if (StringUtils.equalsIgnoreCase(sessionCaptcha, captcha)) {
-                msg = "验证码正确";
-            } else {
-                msg = "验证码错误";
-            }
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-            e.printStackTrace();
-            msg = "系统错误";
-        }
-        model.addAttribute("msg", msg);
-        model.addAttribute("captcha", captcha);
-        return "/captcha/index";
     }
 
     @PostMapping(value = "/ajax")
