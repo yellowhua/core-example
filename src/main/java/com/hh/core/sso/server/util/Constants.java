@@ -9,8 +9,6 @@ import org.springframework.http.MediaType;
  */
 public class Constants {
 
-	public static final String GGFW_URL = "http://localhost:8080/ggfwsso/token-check";
-
 	public static final Integer CODE_SUCCESS = 1;
 
 	/**

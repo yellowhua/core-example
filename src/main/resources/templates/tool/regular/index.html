@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>身份证号正则验证</title>
+    <title>正则验证</title>
     <th:block th:include="common/pub_head::jquery"/>
 </head>
 <body>
@@ -22,6 +22,13 @@
 </div>
 
 <div>
+    密码：
+    <input type="text" id="passwd"/>
+    <input type="button" value="验证" onclick="checkPasswd()"/>
+    <span id="passwdResult"></span>
+</div>
+
+<div>
     中国移动手机号码验证：
     <input type="text" id="chinaMobile"/>
     <input type="button" value="验证" onclick="checkChinaMobile()"/>
@@ -36,11 +43,12 @@
 </div>
 
 <div>
-    中国连通手机号码验证：
+    中国联通手机号码验证：
     <input type="text" id="chinaConnected"/>
     <input type="button" value="验证" onclick="checkChinaConnected()"/>
     <span id="result3"></span>
 </div>
+
 <script th:inline="javascript">
 
     /**
@@ -64,9 +72,26 @@
 <script th:inline="javascript">
     function checkEmail() {
         var reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-        var idcard = $("#email").val();
-        var flag = reg.test(idcard);
+        var email = $("#email").val();
+        var flag = reg.test(email);
         $("#emailResult").text(flag);
+    }
+</script>
+
+<script th:inline="javascript">
+    function checkPasswd() {
+        var value = $("#passwd").val();
+        var reg = /^[^\u4e00-\u9fa5]*$/;
+        if (!reg.test(value)){
+            $("#passwdResult").text('密码不能有中文');
+            return;
+        }
+        var reg = /^(?![^A-Za-z]+$)(?![^0-9]+$)[0-9A-Za-z@._*]{8,20}$/;
+        if (!reg.test(value)) {
+            $("#passwdResult").text('请输入至少同时包括字母和数字的8位以上密码');
+            return;
+        }
+        $("#passwdResult").text('验证通过');
     }
 </script>
 

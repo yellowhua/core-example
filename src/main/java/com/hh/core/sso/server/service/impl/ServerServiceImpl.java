@@ -35,7 +35,7 @@ public class ServerServiceImpl implements ServerService {
 
         // 生成token保存到session中
 //        String token = "person" + UUID.randomUUID().toString();
-        String token = "company" + UUID.randomUUID().toString();
+        String token = "person" + UUID.randomUUID().toString();
         session.setAttribute("token", token);
 
         return token;

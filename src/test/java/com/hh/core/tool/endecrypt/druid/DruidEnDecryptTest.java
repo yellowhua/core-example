@@ -20,7 +20,7 @@ public class DruidEnDecryptTest {
 
     @Test
     public void testDecrypt() throws Exception {
-        String password = "QTU4NY6sY9o046om6IMYp2Tq3L+Qo8G3EIhi5dDnTkiDZcL4edsuJXdjcEnTNo9Tole6efg4RlyUUVTJcClduQ==";
+        String password = "KqJNg2b9dxSQ9+KZ7yppku/F60Nhx5bp+mXhLUXb0wjysm87/KmNzvupxjtIKSjZ0j3tVFiZLr+TUJfvHs/rTQ==";
         logger.info("decrypt password:\n{}", DruidEnDecrypt.decrypt(password));
     }
 

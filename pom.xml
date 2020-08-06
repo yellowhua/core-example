@@ -204,6 +204,12 @@
             <version>1.2.7</version>
         </dependency>
 
+		<dependency>
+			<groupId>com.alibaba.csb.sdk</groupId>
+			<artifactId>http-client</artifactId>
+			<version>1.1.3</version>
+		</dependency>
+
 		<!-- httpclient -->
 		<dependency>
 			<groupId>commons-httpclient</groupId>
@@ -225,14 +231,23 @@
 			<artifactId>fjca</artifactId>
 			<scope>system</scope>
 			<version>1.0</version>
-			<systemPath>${project.basedir}/src/main/resources/lib/fjca-1.0.jar</systemPath>
+			<systemPath>${project.basedir}/src/main/resources/lib/ca/fjca-1.0.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk16</artifactId>
 			<scope>system</scope>
 			<version>1.4.6</version>
-			<systemPath>${project.basedir}/src/main/resources/lib/bcprov-jdk16-1.46.jar</systemPath>
+			<systemPath>${project.basedir}/src/main/resources/lib/ca/bcprov-jdk16-1.46.jar</systemPath>
+		</dependency>
+
+		<!-- 移动短信包 -->
+		<dependency>
+			<groupId>com.mascloud</groupId>
+			<artifactId>sms</artifactId>
+			<scope>system</scope>
+			<version>1.0.0</version>
+			<systemPath>${project.basedir}/src/main/resources/lib/sms/yd/masmgc.sdk.sms-0.0.1-SNAPSHOT.jar</systemPath>
 		</dependency>
 		<!-- ==========business end========== -->
     </dependencies>
@@ -311,6 +326,88 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-archetype-plugin</artifactId>
 				<version>2.2</version>
+			</plugin>
+
+			<plugin>
+				<groupId>io.github.swagger2markup</groupId>
+				<artifactId>swagger2markup-maven-plugin</artifactId>
+				<version>1.3.3</version>
+				<configuration>
+					<!--swagger页面可以看到-->
+					<swaggerInput>http://localhost:8081/core-example/v2/api-docs</swaggerInput>
+					<!--生成多个文件-->
+					<!--<outputDir>./docs/asciidoc/generated/all</outputDir>-->
+					<!--生成单个文件-->
+					<outputFile>./docs/asciidoc/generated/例子</outputFile>
+					<config>
+						<!-- 除了ASCIIDOC之外，还有MARKDOWN和CONFLUENCE_MARKUP可选 -->
+						<swagger2markup.markupLanguage>ASCIIDOC</swagger2markup.markupLanguage>
+					</config>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>convertSwagger2markup</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<version>1.5.6</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.asciidoctor</groupId>
+						<artifactId>asciidoctorj-pdf</artifactId>
+						<version>1.5.0-alpha.16</version>
+					</dependency>
+					<dependency>
+						<groupId>org.jruby</groupId>
+						<artifactId>jruby-complete</artifactId>
+						<version>9.2.8.0</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<!--asciidoc文件所在路径-->
+					<sourceDirectory>./docs/asciidoc/generated</sourceDirectory>
+					<headerFooter>true</headerFooter>
+					<doctype>book</doctype>
+					<sourceHighlighter>coderay</sourceHighlighter>
+					<attributes>
+						<!--菜单栏在左边-->
+						<toc>left</toc>
+						<!--多标题排列-->
+						<toclevels>3</toclevels>
+						<!--自动打数字序号-->
+						<sectnums>true</sectnums>
+					</attributes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>output-html</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<outputDirectory>./docs/asciidoc/html</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>output-pdf</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>pdf</backend>
+							<outputDirectory>./docs/asciidoc/pdf</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
