@@ -8,8 +8,14 @@ import com.mascloud.sdkclient.Client;
 import com.mascloud.util.JsonUtil;
 
 
-
+/**
+ * 移动短信sdk调用（sdk调用需要引入移动的sdk包，sdk包中集成并重写了很多第三方包比如spring、日志等等，会跟我们自己项目的依赖包冲突，导致项目启动不起来，因此不推荐使用）
+ *
+ * @author huanghua
+ * @date 2020/08/13
+ */
 public class Sdk2SmsSend {
+
 	public static void main( String[] args ) {
 		Client client = Client.getInstance( );
 		// 登录地址需另外提供
@@ -39,8 +45,6 @@ public class Sdk2SmsSend {
 		List<MoModel> deliverList = client.getMO( );
 		System.out.println( "getMO : " + JsonUtil.toJsonString( deliverList ) );
 		// 获取上行短信——结束
-
-
 
 	}
 }

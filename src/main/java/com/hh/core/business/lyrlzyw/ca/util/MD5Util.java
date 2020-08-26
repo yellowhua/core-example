@@ -1,5 +1,6 @@
 package com.hh.core.business.lyrlzyw.ca.util;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
 public class MD5Util {
@@ -9,7 +10,7 @@ public class MD5Util {
 		}
 		char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 		try {
-			byte[] btInput = s.getBytes();
+			byte[] btInput = s.getBytes(StandardCharsets.UTF_8);
 			// 获得MD5摘要算法的 MessageDigest 对象
 			MessageDigest mdInst = MessageDigest.getInstance("MD5");
 			// 使用指定的字节更新摘要
