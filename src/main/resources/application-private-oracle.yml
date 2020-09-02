@@ -7,9 +7,9 @@ server:
 spring:
   datasource: #数据源配置
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@192.168.44.89:1521:orcl
-    username: lyrlzywcms
-    password: lyrlzywcms
+    url: jdbc:oracle:thin:@192.168.44.56:1521:mzjz
+    username: esscard
+    password: esscard
     tomcat:
       max-idle: 10 #最大的空闲连接数量
       max-wait: 10000 # 最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。

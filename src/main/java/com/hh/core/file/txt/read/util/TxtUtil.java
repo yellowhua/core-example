@@ -1,6 +1,8 @@
 package com.hh.core.file.txt.read.util;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hh on 2019/12/19.
@@ -8,7 +10,8 @@ import java.io.*;
  */
 public class TxtUtil {
 
-    public static void readTxt(File file){
+    public static List<String> readTxt(File file){
+        List<String> list = new ArrayList<>();
         InputStreamReader inputStreamReader = null;
         BufferedReader bufferedReader = null;
         try {
@@ -17,7 +20,7 @@ public class TxtUtil {
             bufferedReader = new BufferedReader(inputStreamReader);
             String value;
             while((value = bufferedReader.readLine()) != null){
-                System.out.println(value);
+                list.add(value);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -37,6 +40,7 @@ public class TxtUtil {
                 }
             }
         }
+        return list;
     }
 
 }

@@ -34,7 +34,7 @@ public class HttpSmsSend {
 		String ecName = "龙岩市社会保障卡服务中心";
 		String apId = "rlzycs";
 		String secretKey = "rlzycs350800";
-		String mobiles = "18965082080,123,";
+		String mobiles = "18965082080";
 		String content = "测试";
 		String sign = "HyOXuWMDC";
 		String addSerial = "";
