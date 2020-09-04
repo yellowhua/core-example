@@ -217,27 +217,4 @@ public class ExampleTest {
         Example.dependencyParser(content);
     }
 
-    @Test
-    public void testMobileData() {
-        // 读取excel
-        String prefifix = "C:\\Users\\Administrator\\Desktop\\work\\福建\\智能运维-进行中\\需求文档\\整理过的知识库\\";
-        String path = prefifix + "活体检测控件安装操作手册.xls";
-        File file = new File(path);
-        String result = ExcelReadUtil.readExcel(file);
-
-        // 分词
-        List<Term> termList = NotionalTokenizer.segment(result);
-        List<String> temps = new ArrayList<>();
-        temps.addAll(termList.stream().map(term -> term.toString().trim()).collect(Collectors.toList()));
-
-        // 去掉分词的注释
-        String sentence = "";
-        for (String word : temps) {
-            sentence += StringUtils.substringBeforeLast(word, "/") + " ";
-        }
-        sentence = StringUtils.replaceAll(sentence, "断句 ", "\n");
-
-        System.out.println(sentence);
-    }
-
 }

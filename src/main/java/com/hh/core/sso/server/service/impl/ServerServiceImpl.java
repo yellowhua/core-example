@@ -3,11 +3,7 @@ package com.hh.core.sso.server.service.impl;
 import com.hh.core.sso.server.service.ServerService;
 import com.hh.core.sso.server.util.Constants;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,11 +18,6 @@ import java.util.UUID;
 @Service
 public class ServerServiceImpl implements ServerService {
 
-    private static final Logger logger = LogManager.getLogger(ServerServiceImpl.class);
-
-    @Autowired
-    private RestTemplate restTemplate;
-
     @Override
     public String login(HttpServletRequest request, String returnUrl) {
         // 模拟服务端登录成功
@@ -34,8 +25,7 @@ public class ServerServiceImpl implements ServerService {
         session.setAttribute("isLogin", true);
 
         // 生成token保存到session中
-//        String token = "person" + UUID.randomUUID().toString();
-        String token = "person" + UUID.randomUUID().toString();
+        String token = "company" + UUID.randomUUID().toString();
         session.setAttribute("token", token);
 
         return token;
@@ -70,8 +60,8 @@ public class ServerServiceImpl implements ServerService {
             data.put("phone", "13865234585");
         } else {
             data.put("accountType", "company");
-            data.put("companyName", "qy04sso");
-            data.put("unifiedCode", "666666000000000000");
+            data.put("companyName", "aaaaaaaa");
+            data.put("unifiedCode", "88888888");
         }
         return data;
     }

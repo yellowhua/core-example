@@ -1,4 +1,4 @@
-package com.hh.core.business.esscard;
+package com.hh.core.business.esscard.util;
 
 import com.alibaba.csb.sdk.ContentBody;
 import com.alibaba.csb.sdk.HttpCaller;

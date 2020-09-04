@@ -1,20 +1,24 @@
 package com.hh.core.file.excel.read.util;
 
 import com.hh.core.file.excel.Constants;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hh on 2019/6/17.
  * excel解析读取工具类
  */
+@Slf4j
 public class ExcelReadUtil {
 
-    public static String readExcel(File file) {
-        String result = "";
+    public static List<List<String>> readExcel(File file) {
+        List<List<String>> list = new ArrayList<>();
         try {
             // 检查文件合法性
             checkFile(file);
@@ -35,20 +39,22 @@ public class ExcelReadUtil {
                     if (j == 0) {continue;}
                     Row row = sheet.getRow(j);
                     if (null == row) {continue;}
+                    List<String> cellList = new ArrayList<>();
 
                     // 获取列数
                     int cellNum = row.getLastCellNum();
                     for (int k = 0; k < cellNum; k++) {
                         Cell cell = row.getCell(k);
                         if (null == cell) {continue;}
-                        System.out.println(cell.getStringCellValue());
+                        cellList.add(cell.getStringCellValue());
                     }
+                    list.add(cellList);
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("read excel error:{}", e.getMessage());
         }
-        return result;
+        return list;
     }
 
     private static void checkFile(File file) throws IOException {
