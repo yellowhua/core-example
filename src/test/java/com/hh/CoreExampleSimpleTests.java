@@ -1,6 +1,8 @@
 package com.hh;
 
 import com.alibaba.fastjson.JSON;
+import com.hh.core.business.esscard.util.Md5Utils;
+import com.hh.core.business.lyrlzyw.ca.util.MD5Util;
 import org.junit.Test;
 
 import java.io.*;
@@ -62,6 +64,11 @@ public class CoreExampleSimpleTests {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void testMd5() {
+        System.out.println(Md5Utils.hash("test_yc" + "123456" + null));
     }
 
 

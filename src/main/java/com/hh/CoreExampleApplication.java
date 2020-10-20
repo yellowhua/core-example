@@ -17,4 +17,5 @@ public class CoreExampleApplication {
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();
 	}
+
 }

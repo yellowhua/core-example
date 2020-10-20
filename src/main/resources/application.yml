@@ -3,7 +3,7 @@ spring:
   application:
     name: core-example
   profiles:
-    active: private-oracle
+    active: private-mysql
 
 #################### mybatis配置 #############################
 mybatis:

@@ -18,30 +18,23 @@ import org.slf4j.LoggerFactory;
 public class CSBDemoESSC {
 	
 	private static final Logger logger = LoggerFactory.getLogger(CSBDemoESSC.class);
-	private String csburl="https://ssc.mohrss.gov.cn";
-	private String accessKey="bbf57149ebbe4d7dba8a85db6542c048";
-	private String securityKey="yBlvU2M4MZGB64yYuuc9tSyP/7I=";
-
-//	private String csburl="https://test-ssc.mohrss.gov.cn/CSB/ecard";
-//	private String accessKey="";
-//	private String securityKey="";
-	//这里填入的accessKey、secretKey并不是阿里云账号（或子账号）的accessKey、secretKey，而是CSB订阅者（即：第三方接入渠道）凭证的accessKey、secretKey
-	
-	private String api_version="1.0.0";
-	private String api_method="post";
+	private String csburl="https://ssc.mohrss.gov.cn/CSB/ecard";
+	private String accessKey="a547d072e52b4123a08fb9a71a209cd4";
+	private String securityKey="GFZ1qxBTVuT/p2vA7vwTolWlEdY=";
 	public static int SUCCESS = 200;
 	
 	public void v1_sign_info(){
 		HttpParameters.Builder builder = HttpParameters.newBuilder();
 		builder.requestURL(csburl) // 设置请求的URL
 				.api("sign_info") // 设置服务名
-				.version(api_version) // 设置版本号
-				.method(api_method) // 设置调用方式, get/post
+				.version("1.0.0") // 设置版本号
+				.method("POST") // 设置调用方式, get/post
 				.accessKey(accessKey)
 				.secretKey(securityKey); // 设置accessKey 和 设置secretKey
 		
 		// 设置请求参数（json格式)
-		String jsonData="{\"channelNo\":\"1400000001\",\"aab301\":\"\",\"aac002\":\"140311195509213025\",\"aac003\":\"荆爱花\"}";
+//		String jsonData="{\"channelNo\":\"1400000001\",\"aab301\":\"\",\"aac002\":\"140311195489213025\",\"aac003\":\"袁建忠\"}";
+		String jsonData="{\"channelNo\":\"2200000001\",\"aab301\":\"\",\"aac002\":\"152128199001053030\",\"aac003\":\"敖雪松\"}";
 		ContentBody cb = new ContentBody(jsonData);
 		builder.contentBody(cb);
 		

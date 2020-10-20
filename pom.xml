@@ -139,7 +139,7 @@
 			<artifactId>hanlp</artifactId>
 			<scope>system</scope>
 			<version>fix</version>
-			<systemPath>${project.basedir}/src/main/resources/lib/hanlp-1.7.3.jar</systemPath>
+			<systemPath>${project.basedir}/src/main/resources/lib/hanlp/hanlp-1.7.3.jar</systemPath>
 		</dependency>-->
 
 		<!-- poi工具类，处理xls格式的exlce -->
@@ -239,15 +239,6 @@
 			<scope>system</scope>
 			<version>1.4.6</version>
 			<systemPath>${project.basedir}/src/main/resources/lib/ca/bcprov-jdk16-1.46.jar</systemPath>
-		</dependency>
-
-		<!-- 移动短信包 -->
-		<dependency>
-			<groupId>com.mascloud</groupId>
-			<artifactId>sms</artifactId>
-			<scope>system</scope>
-			<version>1.0.0</version>
-			<systemPath>${project.basedir}/src/main/resources/lib/sms/yd/masmgc.sdk.sms-0.0.1-SNAPSHOT.jar</systemPath>
 		</dependency>
 		<!-- ==========business end========== -->
     </dependencies>
