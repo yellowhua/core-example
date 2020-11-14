@@ -2,10 +2,6 @@ package com.hh.core.business.lyrlzyw.sms.yd;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hh.core.business.lyrlzyw.ca.util.MD5Util;
-import com.mascloud.model.MoModel;
-import com.mascloud.model.StatusReportModel;
-import com.mascloud.sdkclient.Client;
-import com.mascloud.util.JsonUtil;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -14,8 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.List;
 
 
 /**

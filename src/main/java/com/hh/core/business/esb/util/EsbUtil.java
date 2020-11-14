@@ -1,7 +1,7 @@
-package com.hh.core.business.esscard.esb.util;
+package com.hh.core.business.esb.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hh.core.business.esscard.esb.entity.EsbResult;
+import com.hh.core.business.esb.entity.EsbResult;
 import org.dom4j.*;
 
 import java.util.ArrayList;

@@ -1,9 +1,9 @@
 package com.hh.core.business.esscard;
 
-import com.hh.core.business.esscard.esb.CallEsbService;
-import com.hh.core.business.esscard.esb.entity.EsbParams;
-import com.hh.core.business.esscard.esb.entity.EsbResult;
-import com.hh.core.business.esscard.esb.enums.EsbServiceId;
+import com.hh.core.business.esb.CallEsbService;
+import com.hh.core.business.esb.entity.EsbParams;
+import com.hh.core.business.esb.entity.EsbResult;
+import com.hh.core.business.esb.enums.EsbServiceId;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +19,13 @@ import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CallEsbServiceTest {
+public class JLEsbTest {
 
     @Autowired
     private CallEsbService esbService;
 
     @Test
-    public void contextLoads() {
-    }
-
-    @Test
-    public void esbTest() {
+    public void testJLSendSms() {
         EsbParams eparams = new EsbParams();
         eparams.add("accessId", "yw_ycs");
         eparams.add("accessSecret", getPwd("yw_ycs"));
@@ -38,7 +34,7 @@ public class CallEsbServiceTest {
         eparams.add("telephones", "18965082080");
         eparams.add("title", "测试短信");
         eparams.add("content", "消息重发");
-        EsbResult result = esbService.doAction(EsbServiceId.QUERY_GW, eparams);
+        EsbResult result = esbService.doAction(EsbServiceId.SEND_SMS, eparams);
         System.out.println(result);
     }
 

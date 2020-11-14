@@ -1,4 +1,4 @@
-package com.hh.core.business.esscard.esb.entity;
+package com.hh.core.business.esb.entity;
 
 import java.util.ArrayList;
 import java.util.List;
