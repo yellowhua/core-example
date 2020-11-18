@@ -1,4 +1,4 @@
-package com.hh.core.business.smrlzyw.company;
+package com.hh.core.business.smrlzyw.company.esb;
 
 import com.hh.core.business.esb.CallEsbService;
 import com.hh.core.business.esb.entity.EsbParams;
