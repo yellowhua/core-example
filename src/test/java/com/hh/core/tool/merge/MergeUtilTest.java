@@ -1,6 +1,6 @@
 package com.hh.core.tool.merge;
 
-import com.hh.core.tool.merge.data.ProductData;
+import com.hh.core.tool.merge.data.ProductDataDto;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,27 +10,27 @@ public class MergeUtilTest {
 
     @Test
     public void testMerge() {
-        List<ProductData> list = createData();
-        List<ProductData> result = MergeUtil.mergeData(list);
-        for (ProductData data : result) {
+        List<ProductDataDto> list = createData();
+        List<ProductDataDto> result = MergeUtil.mergeData(list);
+        for (ProductDataDto data : result) {
             System.out.println(data);
         }
     }
 
-    private List<ProductData> createData() {
-        List<ProductData> list = new ArrayList<>();
+    private List<ProductDataDto> createData() {
+        List<ProductDataDto> list = new ArrayList<>();
 
-        ProductData productData1 = new ProductData(1, "手机", "苹果", 1);list.add(productData1);
-        ProductData productData2 = new ProductData(1, "手机", "小米", 2);list.add(productData2);
-        ProductData productData3 = new ProductData(1, "手机", "华为", 3);list.add(productData3);
+        ProductDataDto productDataDto1 = new ProductDataDto(1, "手机", "苹果", 1);list.add(productDataDto1);
+        ProductDataDto productDataDto2 = new ProductDataDto(1, "手机", "小米", 2);list.add(productDataDto2);
+        ProductDataDto productDataDto3 = new ProductDataDto(1, "手机", "华为", 3);list.add(productDataDto3);
 
-        ProductData productData4 = new ProductData(2, "汽车", "奔驰", 1);list.add(productData4);
-        ProductData productData5 = new ProductData(2, "汽车", "宝马", 2);list.add(productData5);
-        ProductData productData6 = new ProductData(2, "汽车", "奥迪", 3);list.add(productData6);
+        ProductDataDto productDataDto4 = new ProductDataDto(2, "汽车", "奔驰", 1);list.add(productDataDto4);
+        ProductDataDto productDataDto5 = new ProductDataDto(2, "汽车", "宝马", 2);list.add(productDataDto5);
+        ProductDataDto productDataDto6 = new ProductDataDto(2, "汽车", "奥迪", 3);list.add(productDataDto6);
 
-        ProductData productData7 = new ProductData(3, "公司", "移动", 1);list.add(productData7);
-        ProductData productData8 = new ProductData(3, "公司", "电信", 2);list.add(productData8);
-        ProductData productData9 = new ProductData(3, "公司", "联通", 3);list.add(productData9);
+        ProductDataDto productDataDto7 = new ProductDataDto(3, "公司", "移动", 1);list.add(productDataDto7);
+        ProductDataDto productDataDto8 = new ProductDataDto(3, "公司", "电信", 2);list.add(productDataDto8);
+        ProductDataDto productDataDto9 = new ProductDataDto(3, "公司", "联通", 3);list.add(productDataDto9);
 
         return list;
     }

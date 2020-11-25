@@ -61,16 +61,10 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 		</dependency>
 
-		<!-- 文档支持 Swagger 是一款RESTFUL接口的文档在线自动生成+功能测试功能软件 -->
+		<!--data jpa(java persistent api) 包括了aop、jdbc、hibernate 的starter-->
 		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.7.0</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.7.0</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
 		<!--mysql驱动-->
@@ -86,17 +80,23 @@
 			<version>12.2.0.1</version>
 		</dependency>
 
-		<!--data jpa(java persistent api) 包括了aop、jdbc、hibernate 的starter-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-
 		<!-- Mybatis 支持-->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>1.2.0</version>
+		</dependency>
+
+		<!-- 文档支持 Swagger 是一款RESTFUL接口的文档在线自动生成+功能测试功能软件 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.7.0</version>
 		</dependency>
 
 		<!-- 字符串集合处理工具类 -->
@@ -110,37 +110,6 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.5</version>
 		</dependency>
-
-		<!-- 多文件上传工具包 -->
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.3.3</version>
-		</dependency>
-
-		<!-- json-lib依赖，提供json数据处理功能 -->
-		<dependency>
-			<groupId>net.sf.json-lib</groupId>
-			<artifactId>json-lib</artifactId>
-			<version>2.2.3</version>
-			<classifier>jdk15</classifier>
-		</dependency>
-
-		<!-- maven依赖引入的hanlp包，与手动引入的hanlp包二选一即可 -->
-		<dependency>
-			<groupId>com.hankcs</groupId>
-			<artifactId>hanlp</artifactId>
-			<version>portable-1.7.3</version>
-		</dependency>
-
-		<!-- 手动引入的hanlp包，与maven依赖引入的hanlp包二选一即可 -->
-		<!--<dependency>
-			<groupId>com.hankcs</groupId>
-			<artifactId>hanlp</artifactId>
-			<scope>system</scope>
-			<version>fix</version>
-			<systemPath>${project.basedir}/src/main/resources/lib/hanlp/hanlp-1.7.3.jar</systemPath>
-		</dependency>-->
 
 		<!-- poi工具类，处理xls格式的exlce -->
 		<dependency>
@@ -156,21 +125,6 @@
 			<version>4.1.0</version>
 		</dependency>
 
-		<!-- snmp4j -->
-		<dependency>
-			<groupId>org.snmp4j</groupId>
-			<artifactId>snmp4j</artifactId>
-			<version>1.10.1</version>
-		</dependency>
-
-		<!--java api，跟aixs依赖冲突-->
-		<!--<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>6.0</version>
-			<scope>provided</scope>
-		</dependency>-->
-
 		<!-- lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -178,24 +132,11 @@
 			<version>1.16.8</version>
 		</dependency>
 
-		<!-- 监听微信消息 -->
-		<dependency>
-			<groupId>io.github.biezhi</groupId>
-			<artifactId>wechat-api</artifactId>
-			<version>1.0.6</version>
-			<exclusions>
-				<exclusion>
-					<groupId>ch.qos.logback</groupId>
-					<artifactId>logback-classic</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
 		<!-- fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.7</version>
+            <version>1.2.56</version>
         </dependency>
 
 		<!-- httpclient -->
@@ -212,7 +153,43 @@
             <version>1.1.19</version>
         </dependency>
 
-		<!-- ==========business start========== -->
+		<!-- ====== tool start ====== -->
+		<!-- maven依赖引入的hanlp包，与手动引入的hanlp包二选一即可 -->
+		<dependency>
+			<groupId>com.hankcs</groupId>
+			<artifactId>hanlp</artifactId>
+			<version>portable-1.7.3</version>
+		</dependency>
+
+		<!-- 多文件上传工具包 -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.3</version>
+		</dependency>
+
+		<!-- snmp4j -->
+		<dependency>
+			<groupId>org.snmp4j</groupId>
+			<artifactId>snmp4j</artifactId>
+			<version>1.10.1</version>
+		</dependency>
+
+		<!-- 监听微信消息 -->
+		<dependency>
+			<groupId>io.github.biezhi</groupId>
+			<artifactId>wechat-api</artifactId>
+			<version>1.0.6</version>
+			<exclusions>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-classic</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- ====== tool end ====== -->
+
+		<!-- ====== business start ====== -->
 		<!-- ca登录包 -->
 		<dependency>
 			<groupId>com.ylzinfo.fjca</groupId>
@@ -260,12 +237,6 @@
 			<groupId>commons-discovery</groupId>
 			<artifactId>commons-discovery</artifactId>
 			<version>0.2</version>
-			<exclusions>
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.axis</groupId>
@@ -282,8 +253,7 @@
 			<artifactId>wsdl4j</artifactId>
 			<version>1.4</version>
 		</dependency>
-
-		<!-- ==========business end========== -->
+		<!-- ====== business end ====== -->
     </dependencies>
 
 	<build>

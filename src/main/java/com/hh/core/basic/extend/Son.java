@@ -6,6 +6,7 @@ package com.hh.core.basic.extend;
  */
 public class Son extends Parent {
 
+    @Override
     public void callMe() {
         System.out.println("son call me");
     }

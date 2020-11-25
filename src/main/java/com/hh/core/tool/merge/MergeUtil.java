@@ -1,6 +1,6 @@
 package com.hh.core.tool.merge;
 
-import com.hh.core.tool.merge.data.ProductData;
+import com.hh.core.tool.merge.data.ProductDataDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,23 +19,23 @@ public class MergeUtil {
      * @param list 原始数据
      * @return 结果数据
      */
-    public static List<ProductData> mergeData(List<ProductData> list) {
-        List<ProductData> result = new ArrayList<>();
+    public static List<ProductDataDto> mergeData(List<ProductDataDto> list) {
+        List<ProductDataDto> result = new ArrayList<>();
 
         // 如果只有一条数据，不做处理
         if (list.size() == 1) { return list; }
 
         for (int i = 0; i < list.size() - 1; i++) {
-            ProductData productData = list.get(i);
-            ProductData productData2 = list.get(i + 1);
+            ProductDataDto productDataDto = list.get(i);
+            ProductDataDto productDataDto2 = list.get(i + 1);
             // 如果当前数据跟下一个数据的product相等，那么就把model拼接起来
-            if (productData.getProduct().equals(productData2.getProduct())) {
-                productData2.setModel(productData.getModel() + "/" + productData2.getModel());
+            if (productDataDto.getProduct().equals(productDataDto2.getProduct())) {
+                productDataDto2.setModel(productDataDto.getModel() + "/" + productDataDto2.getModel());
             } else {
-                result.add(productData);
+                result.add(productDataDto);
             }
             if (i == list.size() - 2) {
-                result.add(productData2);
+                result.add(productDataDto2);
             }
         }
 

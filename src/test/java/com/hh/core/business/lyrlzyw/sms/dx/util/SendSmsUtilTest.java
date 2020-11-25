@@ -1,6 +1,6 @@
 package com.hh.core.business.lyrlzyw.sms.dx.util;
 
-import net.sf.json.JSONObject;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
@@ -16,8 +16,8 @@ public class SendSmsUtilTest {
             SendSmsUtil sendSmsUtil = new SendSmsUtil();
             String result= sendSmsUtil.sendTemplateSms("18965082080", content);
             logger.info("result:{}", result);
-            JSONObject jsonObject = JSONObject.fromObject(result);
-            String code = jsonObject.optString("code", "unknown");
+            JSONObject jsonObject = JSONObject.parseObject(result);
+            String code = jsonObject.getString("code");
             if (Constants.CODE_SUCCESS.equals(code)) {
                 logger.info("短信验证码发送成功");
             } else if (Constants.CODE_PARAMETER_ERROR.equals(code)) {
