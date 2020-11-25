@@ -10,6 +10,11 @@ package com.hh.core.business.esb.enums;
 public enum EsbServiceId {
 
     /**
+     * 三明民生h5
+     */
+    GRSYBXJF("ylz.ps.fj.si.j.queryPayment2020_1", "失业保险个人缴费信息查询_1"),
+
+    /**
      * 三明人力资源网
      */
     HQDXYZM("ylz.ps.sm.sms.getSmsCode", "获取短信验证码"),

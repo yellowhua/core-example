@@ -163,7 +163,7 @@
 			<version>1.10.1</version>
 		</dependency>
 
-		<!--java api，跟axis包冲突了-->
+		<!--java api，跟aixs依赖冲突-->
 		<!--<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
@@ -282,7 +282,6 @@
 			<artifactId>wsdl4j</artifactId>
 			<version>1.4</version>
 		</dependency>
-		<!-- axis 1.4 jar end -->
 
 		<!-- ==========business end========== -->
     </dependencies>
@@ -291,6 +290,7 @@
 		<plugins>
 			<!--配置打包时不包含依赖包-->
 			<plugin>
+				<!--SpringBoot插件，可以把应用打包为可执行Jar-->
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
@@ -363,6 +363,7 @@
 				<version>2.2</version>
 			</plugin>
 
+			<!-- swagger接口文档生成插件 -->
 			<plugin>
 				<groupId>io.github.swagger2markup</groupId>
 				<artifactId>swagger2markup-maven-plugin</artifactId>
@@ -446,6 +447,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>

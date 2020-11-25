@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
-@ConfigurationProperties(prefix = "smrlzyw")
+@ConfigurationProperties(prefix = "smmsh5")
 public class EsbPropertity {
 
     /**
