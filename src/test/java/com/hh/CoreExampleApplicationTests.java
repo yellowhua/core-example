@@ -26,11 +26,11 @@ public class CoreExampleApplicationTests {
 
 	@Test
 	public void testLogin() {
-		String loginUrl = "http://localhost:8081/login";
+		String loginUrl = "http://192.168.44.89:8081/smrlzyw-company/login";
 		MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
 		map.add("username", "com001");
 		map.add("password", "111111");
-		map.add("verifyCode", "1");
+		map.add("verifyCode", "9833");
 		HttpEntity<MultiValueMap<String, Object>> httpEntity = new HttpEntity<>(map, Constants.formHeader());
 		ResponseEntity<String> response = restTemplate.exchange(loginUrl, HttpMethod.POST, httpEntity, String.class);
 		String resultString = response.getBody();
@@ -39,20 +39,13 @@ public class CoreExampleApplicationTests {
 		if (CollectionUtils.isEmpty(cookies)) {
 			throw new RuntimeException("没有cookie");
 		}
-
-		String url = "http://localhost:8081/company/cb02/page";
-		HttpHeaders requestHeaders = new HttpHeaders();
-		requestHeaders.add("Cookie", "");
-		HttpEntity<String> httpEntity2 = new HttpEntity<>(null, requestHeaders);
-		ResponseEntity<String> resEntity = restTemplate.exchange(url, HttpMethod.GET, httpEntity2, String.class);
-		log.info("{}", resEntity);
 	}
 
 	@Test
 	public void testQuery() {
-		String url = "http://localhost:8081/company/cb02/page";
+		String url = "http://192.168.44.89:8081/smrlzyw-company/company/baseInfo";
 		HttpHeaders requestHeaders = new HttpHeaders();
-		requestHeaders.add("Cookie", "");
+		requestHeaders.add("Cookie", "JSESSIONID=5cc889a1-2bd1-4287-84c2-c62aef05f739");
 		HttpEntity<String> httpEntity2 = new HttpEntity<>(null, requestHeaders);
 		ResponseEntity<String> resEntity = restTemplate.exchange(url, HttpMethod.GET, httpEntity2, String.class);
 		log.info("{}", resEntity);

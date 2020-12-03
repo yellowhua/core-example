@@ -38,7 +38,7 @@ public class CompanyEsbTest {
         EsbParams eparams = new EsbParams();
         eparams.add("aae005", "18965082080");
         eparams.add("aaa121", "013");
-        eparams.add("yse080", "441618");
+        eparams.add("yse080", "510228");
         EsbResult result = esbService.doAction(EsbServiceId.YZDXYZM, eparams);
         log.info("{}", result);
     }
