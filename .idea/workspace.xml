@@ -32,22 +32,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df0a2666-b196-4acc-8068-cf641bfc1ba3" name="Default" comment="修改内容：&#10;1.调整readme">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hh/core/basic/aop/AopDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hh/core/basic/aop/aspect/AopDemoAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hh/core/business/smmsh5/util/JdkSha1Util.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hh/core/business/smmsh5/util/RsaUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/hh/core/basic/aop/AopDemoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/hh/core/business/smmsh5/util/JdkSha1UtilTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="df0a2666-b196-4acc-8068-cf641bfc1ba3" name="Default" comment="修改内容：&#10;1.webservice调用调整">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/hh/core/business/ggfwwt/company/JobTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hh/core/business/esb/propertity/EsbPropertity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hh/core/business/esb/propertity/EsbPropertity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hh/core/business/esscard/util/CSBDemoESSC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hh/core/business/esscard/util/CSBDemoESSC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-private-mysql.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-private-mysql.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hh/CoreExampleApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hh/CoreExampleApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hh/CoreExampleSimpleTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hh/CoreExampleSimpleTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hh/core/business/smrlzyw/company/esb/CompanyEsbTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hh/core/business/smrlzyw/company/esb/CompanyEsbTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hh/core/business/ggfwwt/wszc/WszcEsbTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hh/core/business/ggfwwt/person/wszc/WszcEsbTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hh/core/business/smmsh5/esb/Smmsh5EsbTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hh/core/business/smmsh5/esb/Smmsh5EsbTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hh/core/business/smmsh5/util/JdkSha1UtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hh/core/business/smmsh5/util/JdkSha1UtilTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +94,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/hh/core/business/smmsggfw" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/com/hh/core/business/smrlzyw/company/webservice" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15813118" />
     <property name="project.structure.side.proportion" value="0.26450115" />
@@ -117,10 +108,11 @@
       <recent name="com.hh.core.business.smmsh5.util" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Workspace\idea\hh\core-example\src\test\java\com\hh\core\business\smrlzyw\company\webservice" />
       <recent name="G:\Workspace\idea\hh\core-example\src\main\java\com\hh\core\business\smmsggfw" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CoreExampleSimpleTests.test">
+  <component name="RunManager" selected="JUnit.JobTest.testRemoteCall">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -131,74 +123,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CompanyEsbTest.testSendSmsCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="core-example" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.hh.core.business.smrlzyw.company.esb.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.hh.core.business.smrlzyw.company.esb" />
-      <option name="MAIN_CLASS_NAME" value="com.hh.core.business.smrlzyw.company.esb.CompanyEsbTest" />
-      <option name="METHOD_NAME" value="testSendSmsCode" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CompanyEsbTest.testYzSmsCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="core-example" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.hh.core.business.smrlzyw.company.esb.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.hh.core.business.smrlzyw.company.esb" />
-      <option name="MAIN_CLASS_NAME" value="com.hh.core.business.smrlzyw.company.esb.CompanyEsbTest" />
-      <option name="METHOD_NAME" value="testYzSmsCode" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CoreExampleSimpleTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="core-example" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.hh.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.hh" />
-      <option name="MAIN_CLASS_NAME" value="com.hh.CoreExampleSimpleTests" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JdkSha1UtilTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="core-example" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.hh.core.business.smmsh5.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.hh.core.business.smmsh5.util" />
-      <option name="MAIN_CLASS_NAME" value="com.hh.core.business.smmsh5.util.JdkSha1UtilTest" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -214,6 +138,74 @@
       <option name="PACKAGE_NAME" value="com.hh.core.business.smmsh5.util" />
       <option name="MAIN_CLASS_NAME" value="com.hh.core.business.smmsh5.util.JdkSha1UtilTest" />
       <option name="METHOD_NAME" value="testSignEncrypt" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JdkSha1UtilTest.testSignEncrypt2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hh.core.business.smmsh5.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hh.core.business.smmsh5.util" />
+      <option name="MAIN_CLASS_NAME" value="com.hh.core.business.smmsh5.util.JdkSha1UtilTest" />
+      <option name="METHOD_NAME" value="testSignEncrypt2" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JobTest.testRemoteCall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hh.core.business.ggfwwt.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hh.core.business.ggfwwt.company" />
+      <option name="MAIN_CLASS_NAME" value="com.hh.core.business.ggfwwt.company.JobTest" />
+      <option name="METHOD_NAME" value="testRemoteCall" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemoteCallService.testRemoteCall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hh.core.business.smrlzyw.company.webservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hh.core.business.smrlzyw.company.webservice" />
+      <option name="MAIN_CLASS_NAME" value="com.hh.core.business.smrlzyw.company.webservice.RemoteCallService" />
+      <option name="METHOD_NAME" value="testRemoteCall" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Smmsh5EsbTest.testQueryGrsybxjf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hh.core.business.smmsh5.esb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hh.core.business.smmsh5.esb" />
+      <option name="MAIN_CLASS_NAME" value="com.hh.core.business.smmsh5.esb.Smmsh5EsbTest" />
+      <option name="METHOD_NAME" value="testQueryGrsybxjf" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -254,11 +246,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CoreExampleSimpleTests.test" />
-        <item itemvalue="JUnit.JdkSha1UtilTest.test" />
+        <item itemvalue="JUnit.JobTest.testRemoteCall" />
+        <item itemvalue="JUnit.RemoteCallService.testRemoteCall" />
+        <item itemvalue="JUnit.Smmsh5EsbTest.testQueryGrsybxjf" />
         <item itemvalue="JUnit.JdkSha1UtilTest.testSignEncrypt" />
-        <item itemvalue="JUnit.CompanyEsbTest.testYzSmsCode" />
-        <item itemvalue="JUnit.CompanyEsbTest.testSendSmsCode" />
+        <item itemvalue="JUnit.JdkSha1UtilTest.testSignEncrypt2" />
       </list>
     </recent_temporary>
   </component>
@@ -287,6 +279,13 @@
       <workItem from="1606891709511" duration="1570000" />
       <workItem from="1606978123209" duration="481000" />
       <workItem from="1606991102194" duration="1974000" />
+      <workItem from="1606993283569" duration="262000" />
+      <workItem from="1607045906680" duration="1354000" />
+      <workItem from="1607049401879" duration="2000" />
+      <workItem from="1607050994571" duration="262000" />
+      <workItem from="1607051383051" duration="12000" />
+      <workItem from="1607063888996" duration="5147000" />
+      <workItem from="1607420246592" duration="4351000" />
     </task>
     <task id="LOCAL-00001" summary="修改内容：&#10;1.微调结构">
       <created>1606292909388</created>
@@ -302,7 +301,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606293900746</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="新增内容：&#10;1.rsa算法&#10;2.aop环绕切面">
+      <created>1606993527672</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1606993527672</updated>
+    </task>
+    <task id="LOCAL-00004" summary="修改内容：&#10;1.webservice调用调整">
+      <created>1607068198950</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607068198950</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,57 +344,68 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修改内容：&#10;1.微调结构" />
     <MESSAGE value="修改内容：&#10;1.调整readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改内容：&#10;1.调整readme" />
+    <MESSAGE value="新增内容：&#10;1.rsa算法" />
+    <MESSAGE value="新增内容：&#10;1.rsa算法&#10;2.aop环绕切面" />
+    <MESSAGE value="修改内容：&#10;1.webservice调用调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改内容：&#10;1.webservice调用调整" />
   </component>
   <component name="WindowStateProjectService">
     <state x="562" y="443" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1606291792789">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="562" y="443" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606291792789" />
+    <state x="680" y="387" width="562" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607420383884">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="680" y="387" width="562" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1607420383884" />
     <state x="497" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606291908895">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="497" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606291908895" />
-    <state width="433" height="466" key="DebuggerActiveHint" timestamp="1606892678793">
+    <state width="417" height="466" key="DebuggerActiveHint" timestamp="1607423902941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="433" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1606892678793" />
+    <state width="417" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1607423902941" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1607423844301">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607423844301" />
     <state x="719" y="204" key="FileChooserDialogImpl" timestamp="1606353024901">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="719" y="204" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606353024901" />
-    <state width="1877" height="274" key="GridCell.Tab.0.bottom" timestamp="1606993230694">
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom" timestamp="1607423854002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606993230694" />
-    <state width="1877" height="274" key="GridCell.Tab.0.center" timestamp="1606993230694">
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607423854002" />
+    <state width="1877" height="274" key="GridCell.Tab.0.center" timestamp="1607423854002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606993230694" />
-    <state width="1877" height="274" key="GridCell.Tab.0.left" timestamp="1606993230694">
+    <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607423854002" />
+    <state width="1877" height="274" key="GridCell.Tab.0.left" timestamp="1607423854002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606993230694" />
-    <state width="1877" height="274" key="GridCell.Tab.0.right" timestamp="1606993230694">
+    <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607423854002" />
+    <state width="1877" height="274" key="GridCell.Tab.0.right" timestamp="1607423854002">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606993230694" />
-    <state width="1877" height="274" key="GridCell.Tab.1.bottom" timestamp="1606993230694">
+    <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607423854002" />
+    <state width="1877" height="274" key="GridCell.Tab.1.bottom" timestamp="1607423853886">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606993230694" />
-    <state width="1877" height="274" key="GridCell.Tab.1.center" timestamp="1606993230694">
+    <state width="1877" height="274" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607423853886" />
+    <state width="1877" height="274" key="GridCell.Tab.1.center" timestamp="1607423853886">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606993230694" />
-    <state width="1877" height="274" key="GridCell.Tab.1.left" timestamp="1606993230694">
+    <state width="1877" height="274" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607423853886" />
+    <state width="1877" height="274" key="GridCell.Tab.1.left" timestamp="1607423853885">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606993230694" />
-    <state width="1877" height="274" key="GridCell.Tab.1.right" timestamp="1606993230694">
+    <state width="1877" height="274" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607423853885" />
+    <state width="1877" height="274" key="GridCell.Tab.1.right" timestamp="1607423853886">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606993230694" />
+    <state width="1877" height="274" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607423853886" />
     <state width="1877" height="274" key="GridCell.Tab.2.bottom" timestamp="1606289622010">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -402,28 +426,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606291271815" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606293909252">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607068233510">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1606293909252" />
-    <state x="652" y="307" key="git4idea.merge.GitPullDialog" timestamp="1606292816798">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607068233510" />
+    <state x="652" y="307" key="git4idea.merge.GitPullDialog" timestamp="1606993465022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="652" y="307" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606292816798" />
+    <state x="652" y="307" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606993465022" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/hh/core/business/smrlzyw/company/webservice/CompanyCallService.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/hh/core/business/smmsh5/esb/Smmsh5EsbTest.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/hh/core/basic/aop/AopDemoTest.java</url>
           <line>26</line>
@@ -433,6 +447,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/hh/core/basic/aop/AopDemoTest.java</url>
           <line>28</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/hh/core/business/ggfwwt/company/JobTest.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -29,22 +29,31 @@ public class Smmsh5EsbTest {
     @Test
     public void testQueryGrsybxjf() {
         EsbParams eparams = new EsbParams();
-        eparams.add("aac002", "350425199605022916");
-        eparams.add("aae041", "200001");
+        eparams.add("aac002", "350403199104130013");
+        eparams.add("aae041", "201801");
         eparams.add("aae042", "202012");
         eparams.add("cpage", "1");
         eparams.add("rows", "10");
         EsbResult result = esbService.doAction(EsbServiceId.GRSYBXJF, eparams);
         log.info("{}", result);
 
-        if (result.getTotal().equals("0")) {
-            return;
-        }
+        // 解析数据
+        checkEsbResult(result);
         List<Map<String, String>> list = result.getContent();
         for (Map<String, String> map : list) {
-            System.out.println(map.toString());
+            log.info(map.toString());
         }
 
+    }
+
+    /**
+     * 校验esb返回结果
+     * @param result esb返回结果
+     */
+    private void checkEsbResult(EsbResult result) {
+        if (!result.isResultcode()) {
+            throw new RuntimeException(result.getResultstring());
+        }
     }
 
 }

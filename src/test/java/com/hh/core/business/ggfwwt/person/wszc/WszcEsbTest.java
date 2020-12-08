@@ -1,4 +1,4 @@
-package com.hh.core.business.ggfwwt.wszc;
+package com.hh.core.business.ggfwwt.person.wszc;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
