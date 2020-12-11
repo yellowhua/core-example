@@ -179,15 +179,7 @@ public class WszcEsbTest {
         EsbResult result5 = callCodeEsb("AAC058");
         EsbResult result6 = callCodeEsb("AAC004");
         EsbResult result7 = callCodeEsb("AAB019");
-        log.info("\n\n\n\n\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n\n\n\n\n",
-                JSON.toJSONString(result),
-                JSON.toJSONString(result1),
-                JSON.toJSONString(result2),
-                JSON.toJSONString(result3),
-                JSON.toJSONString(result4),
-                JSON.toJSONString(result5),
-                JSON.toJSONString(result6),
-                JSON.toJSONString(result7));
+        EsbResult result8 = callCodeEsb("SFJSTJ");
     }
 
     private EsbResult callCodeEsb(String code) {
