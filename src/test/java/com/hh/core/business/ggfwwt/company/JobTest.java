@@ -31,10 +31,10 @@ public class JobTest {
             call.addParameter("creditCode", XMLType.XSD_STRING, ParameterMode.IN);// 接口的参数名称
             call.addParameter("rows", XMLType.XSD_STRING, ParameterMode.IN);// 接口的参数名称
             call.addParameter("cpage", XMLType.XSD_STRING, ParameterMode.IN);// 接口的参数名称
-            call.addParameter("ccb022", XMLType.XSD_STRING, ParameterMode.IN);// 接口的参数名称
-            call.addParameter("caz001", XMLType.XSD_STRING, ParameterMode.IN);// 接口的参数名称
+//            call.addParameter("ccb022", XMLType.XSD_STRING, ParameterMode.IN);// 接口的参数名称
+//            call.addParameter("caz001", XMLType.XSD_STRING, ParameterMode.IN);// 接口的参数名称
             call.setReturnType(XMLType.XSD_STRING);// 设置返回类型
-            String result = (String) call.invoke(new Object[] { "12350822MB0573976H", "5", "1", "房间", "000"});
+            String result = (String) call.invoke(new Object[] { "12350822MB0573976H", "5", "1"});
             log.info(result);
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -53,7 +53,7 @@ public class JobTest {
             call.setOperationName(new QName("http://www.ylzinfo.com/xsd", "findJobDetail"));
             call.addParameter("ccb020", XMLType.XSD_STRING, ParameterMode.IN);// 接口的参数名称
             call.setReturnType(XMLType.XSD_STRING);// 设置返回类型
-            String result = (String) call.invoke(new Object[] { "10000000000037" });
+            String result = (String) call.invoke(new Object[] { "10000000000043" });
             log.info(result);
         } catch (Exception e) {
             log.error(e.getMessage());

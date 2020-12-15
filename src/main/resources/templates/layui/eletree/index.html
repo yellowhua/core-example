@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>eletree</title>
+    <th:block th:include="common/pub_head::jquery"/>
+    <th:block th:include="common/pub_head::layui"/>
+    <th:block th:include="common/pub_head::zwData"/>
+</head>
+<body>
+
+<div>
+    岗位类别：<input type="text" id="cce511" readonly/>
+    <input type="hidden" id="cce510"/>
+</div>
+
+<script th:inline="javascript">
+    $(function () {
+        $("#cce511").on("click", function () {
+            $("#zwtree").show();
+            layer.open({
+                type: 1,
+                title: '职位选择',
+                shade: false,
+                area: ['800px', '500px'],
+                maxmin: true,
+                content: $("#zwTree"),
+                zIndex: layer.zIndex, //重点1
+                success: function (layero) {
+                    layer.setTop(layero); //重点2
+                }
+            });
+        });
+    })
+</script>
+</body>
+</html>
