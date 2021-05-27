@@ -253,6 +253,11 @@
 			<artifactId>wsdl4j</artifactId>
 			<version>1.4</version>
 		</dependency>
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.11.0</version>
+		</dependency>
 		<!-- ====== business end ====== -->
     </dependencies>
 
