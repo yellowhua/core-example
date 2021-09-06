@@ -139,6 +139,13 @@
             <version>1.2.56</version>
         </dependency>
 
+		<!-- httpclient -->
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+
 		<!-- druid数据源 -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -146,6 +153,7 @@
             <version>1.1.19</version>
         </dependency>
 
+		<!-- ====== tool start ====== -->
 		<!-- maven依赖引入的hanlp包，与手动引入的hanlp包二选一即可 -->
 		<dependency>
 			<groupId>com.hankcs</groupId>
@@ -159,6 +167,133 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.3.3</version>
 		</dependency>
+
+		<!-- snmp4j -->
+		<dependency>
+			<groupId>org.snmp4j</groupId>
+			<artifactId>snmp4j</artifactId>
+			<version>1.10.1</version>
+		</dependency>
+
+		<!-- 监听微信消息 -->
+		<dependency>
+			<groupId>io.github.biezhi</groupId>
+			<artifactId>wechat-api</artifactId>
+			<version>1.0.6</version>
+			<exclusions>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-classic</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- ====== tool end ====== -->
+
+		<!-- ====== business start ====== -->
+		<!-- ca登录包 -->
+		<dependency>
+			<groupId>com.ylzinfo.fjca</groupId>
+			<artifactId>fjca</artifactId>
+			<scope>system</scope>
+			<version>1.0</version>
+			<systemPath>${project.basedir}/src/main/resources/lib/ca/fjca-1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+			<scope>system</scope>
+			<version>1.4.6</version>
+			<systemPath>${project.basedir}/src/main/resources/lib/ca/bcprov-jdk16-1.46.jar</systemPath>
+		</dependency>
+
+		<!-- 人社部签发数据接口依赖包 -->
+		<dependency>
+			<groupId>com.alibaba.csb.sdk</groupId>
+			<artifactId>http-client</artifactId>
+			<version>1.1.3</version>
+		</dependency>
+
+		<!-- esb -->
+		<dependency>
+			<groupId>com.ylzinfo</groupId>
+			<artifactId>esb</artifactId>
+			<scope>system</scope>
+			<version>1.2</version>
+			<systemPath>${project.basedir}/src/main/resources/lib/esb/esb-1.2.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+			<version>1.1-beta-6</version>
+		</dependency>
+
+		<!-- axis 1.4 jar start -->
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-discovery</groupId>
+			<artifactId>commons-discovery</artifactId>
+			<version>0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis-jaxrpc</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis-saaj</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+
+		<!-- blockchain -->
+		<dependency>
+			<groupId>com.alipay.mychainx</groupId>
+			<artifactId>mychainx-sdk</artifactId>
+			<!--请使用最新 SDK 版本 -->
+			<version>0.10.2.20</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk15on</artifactId>
+			<version>1.60</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.29.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-tcnative-boringssl-static</artifactId>
+			<version>2.0.17.Final</version>
+			<classifier>windows-x86_64</classifier>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>20.0</version>
+		</dependency>
+
+		<!-- ====== business end ====== -->
     </dependencies>
 
 	<build>

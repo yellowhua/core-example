@@ -27,3 +27,31 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+ ###################### jl esscard esb config ##########################
+jl-esscard:
+  esb-url: http://192.168.122.172:8080/YlzinfoESB/esbproxy
+  esb-user: web
+  esb-password: 3B5C37D96F9A0987FC260A1B13F57701
+  esb-log-level: debug
+
+ ####################### fj ggfwwt esb config ##########################
+fj-ggfwwt:
+  esb-url: http://220.160.52.229:9010/esb/esbproxy
+  esb-user: fjweb
+  esb-password: 3B5C37D96F9A0987FC260A1B13F57701
+  esb-log-level: debug
+
+ ####################### smrlzyw esb config ##########################
+smrlzyw:
+  esb-url: http://220.162.229.82:5501/esb/esbproxy
+  esb-user: smzpapp
+  esb-password: 908723B50EE7C0966AE5488C5BF978D7
+  esb-log-level: debug
+
+ ####################### smmsh5 esb config ##########################
+smmsh5:
+  esb-url: http://220.162.229.82:5501/esb/esbproxy
+  esb-user: smmsh5
+  esb-password: 2A47C27C34B4E838
+  esb-log-level: debug

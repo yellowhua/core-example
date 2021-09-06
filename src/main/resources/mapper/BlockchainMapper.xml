@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hh.core.business.blockchain.mapper.BlockchainMapper">
+
+    <insert id="add">
+        insert into user(username, age) values(#{user.username}, #{user.age})
+    </insert>
+
+    <update id="edit">
+        update user set username = #{user.username}, age = #{user.age} where id = #{user.id}
+    </update>
+
+    <select id="query" resultType="com.hh.core.business.blockchain.entity.User">
+        select * from user
+    </select>
+
+    <select id="queryById" resultType="com.hh.core.business.blockchain.entity.User">
+        select * from user where id = #{id}
+    </select>
+
+</mapper>

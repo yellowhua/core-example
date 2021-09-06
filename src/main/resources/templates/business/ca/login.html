@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ca登录</title>
+    <th:block th:include="common/pub_head::jquery"/>
+    <th:block th:include="common/pub_head::layui"/>
+</head>
+<body>
+    <input type="hidden" name="textCertData" id="textCertData" value="">
+    <input type="hidden" name="textOriginData" id="textOriginData" value="">
+    <input type="hidden" name="textSignData" id="textSignData" value="">
+    <input type="button" value="证书登陆" onclick="loginCA();" style="width:130px; height:100px; float:left;" >
+
+
+<script th:inline="javascript">
+    /**
+    * ca登录
+    */
+    function loginCA() {
+        var s = 'loginForm';
+        var ieFlag = isIE();
+        if (ieFlag == false) {
+            //显示ie引导弹窗
+            alert("为了保证您的稳定登录,请使用IE浏览器进行数字证书登录");
+        } else {
+            do2(s);
+        }
+    }
+
+    // 判断是否ie浏览器登录
+    function isIE() {
+        if (!!window.ActiveXObject || "ActiveXObject" in window) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function do2(s) {
+        if (s) {
+            if (do1()) {
+                var param = {
+                    textCertData: $("#textCertData").val(),
+                    textOriginData: $("#textOriginData").val(),
+                    textSignData: $("#textSignData").val()
+                };
+                //弹出loading
+                var loading = layer.load(0, {
+                    shade: [0.1, '#fff']
+                });
+                // document.getElementById(s).submit();
+                $.ajax({
+                    url: 'loginCa',
+                    type: 'post',
+                    dataType: 'json',
+                    data: param,
+                    success: function (res) {
+                        layer.close(loading);
+                        if (res.success) {
+                            // 登录成功，跳转到企业中心
+                            alert("登录成功");
+                        } else {
+                            alert(res.message);
+                        }
+                    }
+                })
+            }
+        }
+    }
+
+    function do1() {
+        try {
+            var b = false;
+            var a = document.getElementById("gs");
+            try {
+                b = a.OpenUSBKey();
+            } catch (e) {
+                a.CloseUSBKey();
+                return false;
+            }
+
+            if (!b) {
+                a.CloseUSBKey();
+                return false;
+            }
+
+            if (!a.ReadCertFromKey()) {
+                a.CloseUSBKey();
+                alert("读证书失败");
+                return false;
+            }
+            document.getElementById("textCertData").value = a.GetCertData();
+            document.getElementById("textOriginData").value = [[${strRandom}]];
+            var strData = document.getElementById("textOriginData").value;
+            if (!a.SignDataWithKey(strData)) {
+                a.CloseUSBKey();
+                alert("对数据签名失败");
+                return false;
+            }
+            document.getElementById("textSignData").value = a.GetSignData();
+
+            a.CloseUSBKey();
+            return true;
+        } catch (e) {
+            alert("请先安装数字证书客户端");
+            //location.href("errorbd.jsp?style=4991");
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
+<OBJECT id="gs" name="SBFjCAEnAndSign" classid="CLSID:506038C2-52A5-4EA5-8F7D-F39B10265709"
+        codebase="SignAndEncrypt.ocx" style="LEFT: 0px; TOP: 0px" height="12" width="12"></OBJECT>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>区块链</title>
+    <th:block th:include="common/pub_head::jquery"/>
+    <th:block th:include="common/pub_head::layui"/>
+</head>
+<body>
+
+<form class="layui-form" action="">
+    <div class="layui-form-item">
+        <label class="layui-form-label">姓名</label>
+        <div class="layui-input-block">
+            <span th:text="${user.username}"></span>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">年龄</label>
+        <div class="layui-input-block">
+            <span th:text="${user.age}"></span>
+        </div>
+    </div>
+
+</form>
+
+</body>
+</html>

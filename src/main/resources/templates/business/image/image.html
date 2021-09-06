@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>多图片预览</title>
+    <th:block th:include="common/pub_head::jquery"/>
+</head>
+<body>
+<div id="images">
+
+</div>
+
+<script th:inline="javascript">
+    $.ajax({
+        type: "get",
+        url: /*[[@{/image/list}]]*/,
+        success: function (data) {
+            for (var i = 0; i < data.length; i++) {
+                $("#images").append("<img src='data:image/png;base64,"+data[i]+"'/><br/>")
+            }
+        }
+    });
+</script>
+</body>
+</html>

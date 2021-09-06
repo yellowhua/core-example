@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>电信短信验证码</title>
+    <th:block th:include="common/pub_head::jquery"/>
+</head>
+<body>
+<div>
+    手机号：
+    <input name="iphone" id="iphone" type="text"/>
+</div>
+<div>
+    短信验证码：
+    <input name="smskey" id="smskey" type="text"/>
+<!--    <input type="button" onclick="getAuthoCode(this)" value="获取短信验证码"/>-->
+    <button type="button" onclick="getAuthoCode(this)">获取短信验证码</button>
+</div>
+<div>
+    <input type="button" value="ajax提交" onclick="ajaxSubmit()"/>
+</div>
+
+<script th:inline="javascript">
+
+    function getAuthoCode(obj) {
+        var iphone = $("#iphone").val();
+        if (iphone.length === 0) {
+            alert("请输入手机号");
+            return;
+        }
+        $(obj).attr('disabled', true);
+        var url = /*[[@{/sms/dx}]]*/;
+        $.ajax({
+            type: "get",
+            url: url,
+            data: {
+                "iphone" : iphone
+            },
+            success: function (data) {
+                alert(data.msg);
+                if (data.code === "0") {
+                    var times = 60;
+                    var interTimes = setInterval(function () {
+                        if (times <= 0) {
+                            clearInterval(interTimes);
+                            $(obj).html('获取短信验证码');
+                            $(obj).attr('disabled', false);
+                        } else {
+                            $(obj).html(times + 's后重新获取');
+                            times--;
+                        }
+                    }, 1000);
+                } else {
+                    $(obj).attr('disabled', false);
+                }
+            }
+        });
+    }
+
+    function ajaxSubmit() {
+        var smskey = $("#smskey").val();
+        if (smskey.length === 0) {
+            alert("请输入短信验证码");
+            return;
+        }
+        var url = /*[[@{/sms/dx/check}]]*/;
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: {
+                "smskey" : smskey
+            },
+            success: function (data) {
+                alert(data);
+            }
+        });
+    }
+</script>
+</body>
+</html>

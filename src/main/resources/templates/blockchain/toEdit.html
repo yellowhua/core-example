@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>区块链</title>
+    <th:block th:include="common/pub_head::jquery"/>
+    <th:block th:include="common/pub_head::layui"/>
+</head>
+<body>
+
+<form class="layui-form" action="">
+    <input type="hidden" id="id" th:value="${user.id}"/>
+    <div class="layui-form-item">
+        <label class="layui-form-label">姓名</label>
+        <div class="layui-input-block">
+            <input type="text" id="username" name="username" th:value="${user.username}" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">年龄</label>
+        <div class="layui-input-block">
+            <input type="text" id="age" name="age" th:value="${user.age}" required  lay-verify="required" placeholder="请输入年龄" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div align="center">
+        <button type="button" class="layui-btn" onclick="add()">保存</button>
+    </div>
+
+</form>
+
+<script th:inline="javascript">
+    function add() {
+        var id = $("#id").val();
+        var username = $("#username").val();
+        var age = $("#age").val();
+        var url = /*[[@{/blockchain/edit}]]*/;
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: {
+                id: id,
+                username: username,
+                age: age
+            },
+            success: function (data) {
+                alert("修改成功");
+                window.parent.location.href = /*[[@{/blockchain}]]*/;
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
