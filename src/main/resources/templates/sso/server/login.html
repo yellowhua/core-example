@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>单点登录服务端登录页面</title>
+    <th:block th:include="common/pub_head::jquery"/>
+</head>
+<body>
+<form th:action="@{/sso-server/login-form}" method="post">
+    <div>
+        <input type="hidden" name="returnUrl" th:value="${returnUrl}"/>
+        <input type="submit" value="form表单单点登录" />
+    </div>
+</form>
+
+<div>
+    <input type="button" value="ajax单点登录" onclick="login()"/>
+</div>
+
+<div>
+    <input type="button" value="服务端未登录，跳转到客户端" onclick="rlzywno()"/>
+</div>
+
+<div>
+    <input type="button" value="服务端已登录，跳转到客户端" onclick="rlzywyes()"/>
+</div>
+
+<script th:inline="javascript">
+    function login() {
+        var url = /*[[@{/sso-server/login-ajax}]]*/;
+        url += "?returnUrl=" + [[${returnUrl}]];
+        $.ajax({
+            type: "post",
+            url: url,
+            success: function (data) {
+                var url = data.returnUrl + "?token=" + data.token;
+                window.open(url, '_top')
+            }
+        });
+    }
+
+    function rlzywno() {
+        var url = "http://localhost:8080/lyrlzyw/";
+        window.open(url, '_top');
+    }
+
+    function rlzywyes() {
+        var url = "http://localhost:8082/lyrlzyw-interface/ggfwsso-client/sso.shtml?token=personxxxxxxxxxxxxxxxxxx";
+        window.open(url, '_top');
+    }
+</script>
+</body>
+</html>

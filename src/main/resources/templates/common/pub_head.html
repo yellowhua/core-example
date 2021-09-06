@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- system start -->
+<!--jquery-->
+<th:block th:fragment="jquery">
+    <script type="text/javascript" th:src="@{/js/jquery/jquery-1.11.0.min.js}"></script>
+</th:block>
+<!--layui-->
+<th:block th:fragment="layui">
+    <link type="text/css" rel="stylesheet" th:href="@{/js/layui/css/layui.css}"/>
+    <script type="text/javascript" th:src="@{/js/layui/layui.all.js}"></script>
+</th:block>
+<!--uploadify-->
+<th:block th:fragment="uploadify">
+    <link rel="stylesheet" type="text/css" th:href="@{/js/uploadify/uploadify.css}"/>
+    <script type="text/javascript" th:src="@{/js/uploadify/jquery.uploadify.js}"></script>
+</th:block>
+<!-- system end -->
+
+<!-- business start -->
+<th:block th:fragment="zwData">
+    <script type="text/javascript" th:src="@{/js/business/layui/eletree/zwData.js}"></script>
+</th:block>
+<!-- business end -->
+
+</html>

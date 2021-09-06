@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>文件列表页面</title>
+    <th:block th:include="common/pub_head::jquery"/>
+    <th:block th:include="common/pub_head::layui"/>
+    <th:block th:include="common/pub_head::uploadify"/>
+</head>
+<body>
+
+<input type="file" name="files" id="uploadify"/>
+
+<button class="layui-btn layui-btn-normal">上传</button>
+
+<script th:inline="javascript">
+    $(function () {
+        $("#uploadify").uploadify({
+            "uploader": /*[[@{/file/upload}]]*/,   //后台处理路径
+            "swf": /*[[@{/js/uploadify/uploadify.swf}]]*/,   //uploadify.swf 文件的相对路径
+            "auto": false,   //设置为true当选择文件后就直接上传了，为false需要点击上传按钮才上传。默认为true
+            "multi": true,   //设置为true时可以上传多个文件
+            "preventCaching": true,   //	如果为true，则每次上传文件时自动加上一串随机字符串参数，防止URL缓存影响上传结果
+            "removeCompleted": false,   //是否自动将已完成任务从队列中删除，如果设置为false则会一直保留此任务显示
+            "buttonText": "浏览",   //浏览按钮的文本
+            "height": 20,
+            "width": 30,
+            "progressData": "speed",   //设置上传进度显示方式，percentage显示上传百分比，speed显示上传速度
+            "uploadLimit": 999,   //文件上传最大个数
+            "fileTypeExts": "*.*",   //允许上传的类型
+            "fileTypeDesc": "请选择文件"   //这个属性值必须设置fileTypeExts属性后才有效，用来设置选择文件对话框中的提示文本，如设置fileTypeDesc为“请选择rar doc pdf文件”
+        });
+        //设置样式
+        $("#SWFUpload_0").css("margin-top", "23px");
+        $(".uploadify-button-text").css("background-color", "#1E9FFF");
+    })
+</script>
+</body>
+</html>

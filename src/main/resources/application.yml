@@ -1,0 +1,13 @@
+#################### 不同环境配置切换 ####################
+spring:
+  application:
+    name: core-example
+  profiles:
+    active: private-mysql
+
+#################### mybatis配置 #############################
+mybatis:
+  type-aliases-package: com.hh.domain
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

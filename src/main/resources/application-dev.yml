@@ -1,0 +1,28 @@
+#################### 本地开发环境配置 ####################
+server:
+  servlet:
+    context-path: /core-example
+  port: 8081
+
+#################### DataSource Configuration ##########################
+#spring 在引入jdbc后，就默认开启了数据库连接池，所以可以不配置
+spring:
+  datasource: #数据源配置
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@192.168.44.89:1521:orcl
+    username: lyrlzywcms
+    password: lyrlzywcms
+    tomcat:
+      max-idle: 10 #最大的空闲连接数量
+      max-wait: 10000 # 最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+      min-idle: 3 # 必须保持连接的最小数
+      initial-size: 3 #启动连接池时，初始建立的连接数量
+      validation-query: SELECT 1
+      test-on-borrow: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000 # 1分钟检查一次：空闲连接检查、废弃连接清理、空闲连接池大小调整之间的操作时间间隔
+      jdbc-interceptors: ConnectionState;SlowQueryReport(threshold=0)
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl

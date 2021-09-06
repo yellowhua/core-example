@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>图形验证码</title>
+    <th:block th:include="common/pub_head::jquery"/>
+</head>
+<body>
+
+<div>
+    验证码：
+    <input name="captcha" id="captcha" th:value="${captcha}" type="text"/>
+    <img id="captchaImg" th:src="@{/tool/captcha}" onclick="refresh();" style="cursor: pointer;" title="点击刷新" />
+</div>
+<div>
+    <input type="button" value="提交" onclick="ajaxSubmit()"/>
+    <span id="result"></span>
+</div>
+
+<script th:inline="javascript">
+    $(function () {
+        var msg = [[${msg}]];
+        if (msg != null) {
+            alert(msg);
+        }
+    });
+
+    function refresh() {
+        var url = /*[[@{/tool/captcha}]]*/;
+        url += "?random" + Math.random();
+        $("#captchaImg").attr("src",url);
+    }
+
+    function ajaxSubmit() {
+        var url = /*[[@{/tool/captcha/ajax}]]*/;
+        url += "?random" + Math.random();
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: {
+                "captcha" : $("#captcha").val()
+            },
+            success: function (data) {
+                $("#result").text(data);
+            }
+        });
+    }
+</script>
+</body>
+</html>

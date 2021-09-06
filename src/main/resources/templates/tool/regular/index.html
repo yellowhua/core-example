@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>正则验证</title>
+    <th:block th:include="common/pub_head::jquery"/>
+</head>
+<body>
+
+<div>
+    身份证号：
+    <input type="text" id="idcard"/>
+    <input type="button" value="验证" onclick="checkIDCard()"/>
+    <span id="idcardResult"></span>
+</div>
+
+<div>
+    邮箱：
+    <input type="text" id="email"/>
+    <input type="button" value="验证" onclick="checkEmail()"/>
+    <span id="emailResult"></span>
+</div>
+
+<div>
+    密码：
+    <input type="text" id="passwd"/>
+    <input type="button" value="验证" onclick="checkPasswd()"/>
+    <span id="passwdResult"></span>
+</div>
+
+<div>
+    中国移动手机号码验证：
+    <input type="text" id="chinaMobile"/>
+    <input type="button" value="验证" onclick="checkChinaMobile()"/>
+    <span id="result1"></span>
+</div>
+
+<div>
+    中国电信手机号码验证：
+    <input type="text" id="chinaTelcom"/>
+    <input type="button" value="验证" onclick="checkChinaTelcom()"/>
+    <span id="result2"></span>
+</div>
+
+<div>
+    中国联通手机号码验证：
+    <input type="text" id="chinaConnected"/>
+    <input type="button" value="验证" onclick="checkChinaConnected()"/>
+    <span id="result3"></span>
+</div>
+
+<script th:inline="javascript">
+
+    /**
+     * 编码规则顺序从左至右依次为6位数字地址码，8位数字出生年份日期码，3位数字顺序码，1位数字校验码（可为x）。
+     * [1-9]\d{5}                 前六位地区，非0打头
+     * (18|19|([23]\d))\d{2}      出身年份，覆盖范围为 1800-3999 年
+     * ((0[1-9])|(10|11|12))      月份，01-12月
+     * (([0-2][1-9])|10|20|30|31) 日期，01-31天
+     * \d{3}[0-9Xx]：              顺序码三位 + 一位校验码
+     */
+    function checkIDCard() {
+        var reg = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+        var idcard = $("#idcard").val();
+        var flag = idcard.length === 18 && reg.test(idcard);
+        $("#idcardResult").text(flag);
+    }
+
+
+</script>
+
+<script th:inline="javascript">
+    function checkEmail() {
+        var reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+        var email = $("#email").val();
+        var flag = reg.test(email);
+        $("#emailResult").text(flag);
+    }
+</script>
+
+<script th:inline="javascript">
+    function checkPasswd() {
+        var value = $("#passwd").val();
+        var reg = /^[^\u4e00-\u9fa5]*$/;
+        if (!reg.test(value)){
+            $("#passwdResult").text('密码不能有中文');
+            return;
+        }
+        var reg = /^(?![^A-Za-z]+$)(?![^0-9]+$)[0-9A-Za-z@._*]{8,20}$/;
+        if (!reg.test(value)) {
+            $("#passwdResult").text('请输入至少同时包括字母和数字的8位以上密码');
+            return;
+        }
+        $("#passwdResult").text('验证通过');
+    }
+</script>
+
+<script th:inline="javascript">
+
+    /**
+     * 中国移动手机号码正则验证
+     * 1.匹配13开头，第三位数字可以是4到9中的任意一个，然后再加任意8位数字
+     * 2.匹配15开头，第三位数字可以是0、1、2、7、8或者9，然后再加任意8位数字
+     * 3.匹配18开头，第三位数字可以是2、3、4、7或者8，然后再加任意8位数字
+     * 4.匹配147开头，然后再加任意8位数字
+     * 5.匹配17开头，第三位数字可以是2或者8，然后再加任意8位数字
+     * 6.匹配198开头，然后再加任意8位数字
+     */
+    function checkChinaMobile() {
+        var reg = /^13[4-9]\d{8}|15[012789]\d{8}|18[23478]\d{8}|147\d{8}|17[28]\d{8}|198\d{8}$/;
+        var chinaMobile = $("#chinaMobile").val();
+        var flag = reg.test(chinaMobile);
+        $("#result1").text(flag);
+    }
+
+    /**
+     * 中国电信手机号码正则验证
+     * 1.匹配133开头，然后再加任意8位数字
+     * 2.匹配149开头，然后再加任意8位数字
+     * 3.匹配153开头，然后再加任意8位数字
+     * 4.匹配17开头，第三位数字可以是3或者7，然后再加任意8位数字
+     * 5.匹配18开头，第三位数字可以是0、1或者9，然后再加任意8位数字
+     * 6.匹配199开头，然后再加任意8位数字
+     */
+    function checkChinaTelcom() {
+        var reg = /^133\d{8}|149\d{8}|153\d{8}|17[37]\d{8}|18[019]\d{8}|199\d{8}$/;
+        var chinaTelcom = $("#chinaTelcom").val();
+        var flag = reg.test(chinaTelcom);
+        $("#result2").text(flag);
+    }
+
+    /**
+     * 中国连通手机号码正则验证
+     * 1.匹配13开头，第三位数字可以是0、1或者2，然后再加任意8位数字
+     * 2.匹配145开头，然后再加任意8位数字
+     * 3.匹配15开头，第三位数字可以是5或者6，然后再加任意8位数字
+     * 4.匹配166开头，然后再加任意8位数字
+     * 5.匹配17开头，第三位数字可以是1、5或者6，然后再加任意8位数字
+     * 6.匹配18开头，第三位数字可以是5或者6，然后再加任意8位数字
+     */
+    function checkChinaConnected() {
+        var reg = /^13[012]\d{8}|145\d{8}|15[56]\d{8}|166\d{8}|17[156]\d{8}|18[56]\d{8}$/;
+        var chinaConnected = $("#chinaConnected").val();
+        var flag = reg.test(chinaConnected);
+        $("#result3").text(flag);
+    }
+</script>
+</body>
+</html>
