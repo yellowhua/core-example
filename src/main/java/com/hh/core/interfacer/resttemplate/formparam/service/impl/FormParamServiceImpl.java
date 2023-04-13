@@ -4,10 +4,16 @@ import com.hh.core.interfacer.resttemplate.formparam.service.FormParamService;
 import com.hh.core.interfacer.resttemplate.formparam.util.Constants;
 import com.hh.core.interfacer.resttemplate.formparam.util.RestTemplateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +28,9 @@ public class FormParamServiceImpl implements FormParamService {
 
     @Autowired
     private RestTemplateUtil restTemplateUtil;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     @Override
     public Integer singleParamInvoke() {
@@ -42,6 +51,19 @@ public class FormParamServiceImpl implements FormParamService {
     public Integer listObjectInvoke() {
         List<MultiValueMap<String, Object>> reqParam = structureParams();
         Map resResult = restTemplateUtil.postForm(Constants.LIST_OBJECT_RES_URL, reqParam);
+        return (Integer) resResult.get("code");
+    }
+
+    @Override
+    public Integer uploadFile() throws Exception {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+        File file = new File("D:\\xyhh\\Desktop\\test.doc");
+        MultiValueMap<String, Object> paramMap = new LinkedMultiValueMap<>();
+        paramMap.add("file", new FileSystemResource(file));
+        String url = "http://localhost:8085/core-example/interfacer/form-param/file/res";
+        HttpEntity<MultiValueMap<String, Object>> httpEntity = new HttpEntity<>(paramMap, headers);
+        Map resResult = restTemplate.postForObject(url, httpEntity, Map.class);
         return (Integer) resResult.get("code");
     }
 

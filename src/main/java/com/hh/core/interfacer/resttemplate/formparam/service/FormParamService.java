@@ -20,4 +20,9 @@ public interface FormParamService {
      * 调用接口，参数为对象集合
      */
     Integer listObjectInvoke();
+
+    /**
+     * 文件上传
+     */
+    Integer uploadFile() throws Exception;
 }
