@@ -9,7 +9,9 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,6 +80,26 @@ public class FormParamController {
     @ResponseBody
     public Map<String, Object> listObjectRes(List<Map<String, Object>> params) {
         logger.info(params.toString());
+        return returnMsg();
+    }
+
+    @ApiOperation(value = "文件对象")
+    @PostMapping(value = "file/req")
+    @ResponseBody
+    public Integer fileReq() throws Exception {
+        return formParamService.uploadFile();
+    }
+
+    @ApiOperation(value = "文件对象")
+    @PostMapping(value = "file/res")
+    @ResponseBody
+    public Map<String, Object> fileRes(@RequestParam("file") MultipartFile file) throws IOException {
+        byte[] bytes = file.getBytes();
+        File file1 = new File("D:\\xyhh\\Desktop\\aaaaa.doc");
+        OutputStream out = new FileOutputStream(file1);
+        for (int i = 0; i < bytes.length; i++) {
+            out.write(bytes[i]);
+        }
         return returnMsg();
     }
 

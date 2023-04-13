@@ -46,7 +46,7 @@ public class Constants {
     /**
      * 响应返回参数
      */
-    public static final Integer CODE_SUCCESS = 0;
+    public static final Integer CODE_SUCCESS = 200;
     public static final String MSG_SUCCESS = "接口调用成功";
 
 }
