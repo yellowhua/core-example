@@ -3,6 +3,7 @@ package com.hh;
 import com.hh.core.interfacer.resttemplate.formparam.util.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.*;
 import java.util.List;
-import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -49,6 +50,29 @@ public class CoreExampleApplicationTests {
 		HttpEntity<String> httpEntity2 = new HttpEntity<>(null, requestHeaders);
 		ResponseEntity<String> resEntity = restTemplate.exchange(url, HttpMethod.GET, httpEntity2, String.class);
 		log.info("{}", resEntity);
+	}
+
+	@Test
+	public void testFanruan() {
+		String url = "http://localhost:8075/WebReport/ReportServer?reportlet=CreditSummary.cpt";
+		String resEntity = restTemplate.getForObject(url, String.class);
+		log.info("{}", resEntity);
+
+		// 截取sessionId
+		String sessionId = StringUtils.substringBefore(StringUtils.substringAfter(resEntity, "sessionID="), "\"");
+		log.info("{}", sessionId);
+
+		// 下载excel
+		String downloadUrl = "http://localhost:8075/WebReport/ReportServer?op=export&format=excel&extype=simple&sessionID=" + sessionId;
+		byte[] bytes = restTemplate.getForObject(downloadUrl, byte[].class);
+		File file = new File("D:\\xyhh\\Desktop\\test.xlsx");
+		try (OutputStream out = new FileOutputStream(file)) {
+			out.write(bytes);
+		} catch (IOException e) {
+			log.error("文件下载失败！" + e.getMessage());
+			e.printStackTrace();
+		}
+
 	}
 
 }

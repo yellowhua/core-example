@@ -10,6 +10,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
+import java.util.Date;
 
 /**
  * Created by hh on 2019/6/17.
@@ -29,10 +30,10 @@ public class ReadReportUtil {
             // 获取sheet数量
             int sheetNum = workbook.getNumberOfSheets();
 
-            for (int i = 0; i < sheetNum; i++) {
-                if (i == 0) {
-                    System.out.println("## 工程项目数据");
-                    parseLimitProject(workbook, i);
+            for (int s = 0; s < sheetNum; s++) {
+                if (s == 0) {
+                    System.out.println("## 授信数据");
+                    parseLoanInfo(workbook, s);
                 }
             }
         } catch (IOException e) {
@@ -41,109 +42,54 @@ public class ReadReportUtil {
         return result;
     }
 
-    private static void parseApplyLoanInfo(Workbook workbook, int i) {
-        Sheet sheet = workbook.getSheetAt(i);
+    private static void parseLoanInfo(Workbook workbook, int s) {
+        Sheet sheet = workbook.getSheetAt(s);
         if (null == sheet) {return;}
 
         // 获取行数
         int rowNum = sheet.getLastRowNum();
-        for(int j = 0; j < rowNum + 1; j++){
-            boolean flag = true;
-            String sql = "update xy_apply.apply_loan_info set statement_amount = $statementAmount where id = $id;";
-            if (j == 0) {continue;}
-            Row row = sheet.getRow(j);
+        for(int i = 0; i < rowNum + 1; i++){
+            String sql = "update xy_apply.apply_limit_info set safeguard_measure = '$safeguardMeasure', risk_approve_measure = '$riskApproveMeasure', " +
+                    "item_maintain = '$itemMaintain' where limit_no = '$limitNo';";
+            if (i == 0) {continue;}
+            Row row = sheet.getRow(i);
             if (null == row) {continue;}
 
             // 获取列数
             int cellNum = row.getLastCellNum();
-            for (int k = 0; k < cellNum; k++) {
-                if (k == 6) {
-                    Cell cell = row.getCell(k);
+            for (int j = 0; j < cellNum; j++) {
+                if (j == 1) {
+                    Cell cell = row.getCell(j);
+                    if (null == cell) {continue;}
                     cell.setCellType(CellType.STRING);
-                    if (StringUtils.isEmpty(cell.getStringCellValue())) {
-                        flag = false;
+                    String limitNo = cell.getStringCellValue();
+                    if (StringUtils.isBlank(limitNo)) {
+                        sql = "";
+                        break;
                     }
-                    sql = sql.replace("$statementAmount", cell.getStringCellValue());
+                    sql = sql.replace("$limitNo", cell.getStringCellValue());
                 }
-                if (k == 0) {
-                    Cell cell = row.getCell(k);
+                if (j == 4) {
+                    Cell cell = row.getCell(j);
+                    if (null == cell) {continue;}
                     cell.setCellType(CellType.STRING);
-                    sql = sql.replace("$id", cell.getStringCellValue());
+                    sql = sql.replace("$safeguardMeasure", cell.getStringCellValue());
+                }
+                if (j == 5) {
+                    Cell cell = row.getCell(j);
+                    if (null == cell) {continue;}
+                    cell.setCellType(CellType.STRING);
+                    sql = sql.replace("$riskApproveMeasure", cell.getStringCellValue());
+                }
+                if (j == 6) {
+                    Cell cell = row.getCell(j);
+                    if (null == cell) {continue;}
+                    cell.setCellType(CellType.STRING);
+                    sql = sql.replace("$itemMaintain", cell.getStringCellValue());
                 }
             }
-            if (flag) {
-                System.out.println(sql);
-            }
-        }
-    }
-
-    private static void parseLimitProject(Workbook workbook, int i) {
-        Sheet sheet = workbook.getSheetAt(i);
-        if (null == sheet) {return;}
-
-        // 获取行数
-        int rowNum = sheet.getLastRowNum();
-        for(int j = 0; j < rowNum + 1; j++){
-            String sql = "update xy_limit.limit_project set owner_name = $ownerName where limit_no = $limitNo and project_id = $projectId;";
-            if (j == 0) {continue;}
-            Row row = sheet.getRow(j);
-            if (null == row) {continue;}
-
-            // 获取列数
-            int cellNum = row.getLastCellNum();
-            for (int k = 0; k < cellNum; k++) {
-                if (k == 5) {
-                    Cell cell = row.getCell(k);
-                    sql = sql.replace("$ownerName", "'" + cell.getStringCellValue() + "'");
-                }
-                if (k == 3) {
-                    Cell cell = row.getCell(k);
-                    sql = sql.replace("$limitNo", "'" + cell.getStringCellValue() + "'");
-                }
-                if (k == 4) {
-                    Cell cell = row.getCell(k);
-                    sql = sql.replace("$projectId", cell.getStringCellValue());
-                }
-            }
-            String sql2 = sql.replace("xy_limit.limit_project", "xy_apply.apply_limit_project");
             System.out.println(sql);
-            System.out.println(sql2);
-        }
-    }
-
-    private static void parseLimitInfo(Workbook workbook, int i) {
-        Sheet sheet = workbook.getSheetAt(i);
-        if (null == sheet) {return;}
-
-        // 获取行数
-        int rowNum = sheet.getLastRowNum();
-        for(int j = 0; j < rowNum + 1; j++){
-            String sql = "update xy_limit.limit_info set share_with = $shareWith, approve_date = $approveDate where limit_no = $limitNo;";
-            if (j == 0) {continue;}
-            Row row = sheet.getRow(j);
-            if (null == row) {continue;}
-
-            // 获取列数
-            int cellNum = row.getLastCellNum();
-            for (int k = 0; k < cellNum; k++) {
-                if (k == 28) {
-                    Cell cell = row.getCell(k);
-                    sql = sql.replace("$shareWith", "'" + cell.getStringCellValue() + "'");
-                }
-                if (k == 29) {
-                    Cell cell = row.getCell(k);
-                    sql = sql.replace("$approveDate", "'" + DateFormatUtils.format(cell.getDateCellValue(), "yyyy-MM-dd") + "'");
-                }
-                if (k == 1) {
-                    Cell cell = row.getCell(k);
-                    sql = sql.replace("$limitNo", "'" + cell.getStringCellValue() + "'");
-                }
-            }
-            String sql2 = sql.replace("xy_limit.limit_info", "xy_apply.apply_limit_info");
-            String sql3 = sql.replace("xy_limit.limit_info", "xy_apply.apply_limit_info_his");
-            System.out.println(sql);
-            System.out.println(sql2);
-            System.out.println(sql3);
+            System.out.println();
         }
     }
 
@@ -183,7 +129,7 @@ public class ReadReportUtil {
     }
 
     public static void main(String[] args) {
-        File file = new File("d:\\xyhh\\Desktop\\work\\xy\\保理\\台账新增字段历史数据补充\\业主名称字段历史数据补充.xlsx");
+        File file = new File("d:\\xyhh\\Desktop\\存量数据处理-授信-风控提供(1).xlsx");
         readExcel(file);
     }
 }
